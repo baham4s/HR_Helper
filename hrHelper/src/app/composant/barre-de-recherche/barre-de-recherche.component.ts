@@ -10,6 +10,9 @@ export class BarreDeRechercheComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+
+
   }
 
 }

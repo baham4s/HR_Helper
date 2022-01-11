@@ -1,1 +1,21 @@
-<p>filtre works!</p>
+
+<div class="liste">
+  <ul>
+    <li><input type="button" value="Valider la reponse" onclick="ajouterFiltre()"></li>
+    <li>Cheese
+      <ul>
+        <li><button (click)="ville('Le Mans')"> Ville</button>
+        </li>
+        <li>Feta</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="listeFiltre">
+Liste des filtres:
+  {{content}}
+
+</div>
+
+
