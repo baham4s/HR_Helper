@@ -9,11 +9,12 @@ import { Component, OnInit,EventEmitter, Output  } from '@angular/core';
 export class FiltreComponent implements OnInit {
   filtre:any=[];
   content: String ="";
-  //@Output() changementMenu = new EventEmitter();
+  //Pour envoyer des informations
   @Output() notify: EventEmitter<string>=new EventEmitter<string>();
 
 
   ajouterFiltre(element:string){
+    // emetres les informations
     this.notify.emit(this.filtre);
 
     let present=0;
@@ -32,11 +33,11 @@ export class FiltreComponent implements OnInit {
 
 
     }
-    //this.changementMenu.emit("ici les infos");
   }
-
+// remetre le filtre à 0
   resetFiltre(){
     this.filtre=[];
+    this.notify.emit(this.filtre);
   }
 
 

@@ -1,18 +1,21 @@
   <div class="content" >
 
     <div class="gauche" >
-      <app-filtre (notify)="onNotifyClicked($event)"></app-filtre>
+      <app-filtre (notify)="onNotifyClickedFiltre($event)"></app-filtre>
     </div>
 
 
     <div class="principale">
       <div class="recherche">
-        <app-barre-de-recherche></app-barre-de-recherche>
+        <app-barre-de-recherche (notify)="onNotifyClickedBarreDeREcherche($event)"></app-barre-de-recherche>
 
 
       </div>
       <div class = "reponse">
-        <p>{{showMessage}}</p>
+
+        <p> filtre de gauche{{FiltreDeGauche}}</p>
+        <p> filtre du haut{{FiltreAuDessus}}</p>
+
       </div>
     </div>
   </div>
