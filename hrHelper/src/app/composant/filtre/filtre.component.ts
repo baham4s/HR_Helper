@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter, Output  } from '@angular/core';
 @Component({
   selector: 'app-filtre',
   templateUrl: './filtre.component.html',
@@ -9,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class FiltreComponent implements OnInit {
   filtre:any=[];
   content: String ="";
+  //@Output() changementMenu = new EventEmitter();
+  @Output() notify: EventEmitter<string>=new EventEmitter<string>();
+
 
   ajouterFiltre(element:string){
+    this.notify.emit(this.filtre);
+
     let present=0;
     console.log(present);
 
@@ -25,7 +30,9 @@ export class FiltreComponent implements OnInit {
     if(present==0){
       this.filtre+=element+"\n";
 
+
     }
+    //this.changementMenu.emit("ici les infos");
   }
 
   resetFiltre(){
