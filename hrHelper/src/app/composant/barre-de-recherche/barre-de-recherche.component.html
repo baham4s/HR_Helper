@@ -1,13 +1,11 @@
-<div class ="metier">
-  <label for="name">Name (4 to 8 characters):</label>
-  <input type="text" id="name" name="name" required
-         minlength="4" maxlength="8" size="10">
+<div class ="nom">
+  <label for="nom">nom :</label>
+  <input type="text" id="nom"  name="nom" #boxnon (keyup.enter)="nom=boxnon.value" (blur)="nom=boxnon.value" >
 </div>
-<div class="lieux">
-  <label for="name">Name (4 to 8 characters):</label>
-  <input type="text" id="name" name="name" required
-         minlength="4" maxlength="8" size="10">
+<div class="prenom">
+  <label for="prenom">prenom :</label>
+  <input type="text" id="prenom" name="prenom" #boxprenon (keyup.enter)="prenom=boxprenon.value"(blur)="prenom=boxprenon.value" >
 </div>
 <div class="rechercher">
-<input type="button" value="Rechercher">
+  <button (click)="rechercher()"> rechercher</button>
 </div>
