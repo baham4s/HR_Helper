@@ -1,0 +1,37 @@
+
+<div class="toolbar" role="banner">
+  <img
+    width="40"
+    alt="Angular Logo"
+    src="../assets/img/hr.png"
+  />
+  <span>hrHelper</span>
+  <button pButton pRipple id="b-inscrCo" type="button" label="S'inscrire" class="p-button-text"></button>
+
+</div>
+<div class="content" >
+
+  <div class="gauche" >
+    <app-filtre (notify)="onNotifyClickedFiltre($event)"></app-filtre>
+  </div>
+
+
+  <div class="principale">
+    <div class="recherche">
+      <app-barre-de-recherche (notify)="onNotifyClickedBarreDeREcherche($event)"></app-barre-de-recherche>
+
+
+    </div>
+    <div class = "reponse">
+
+      <p> filtre de gauche{{FiltreDeGauche}}</p>
+      <p> filtre du haut{{FiltreAuDessus}}</p>
+
+    </div>
+  </div>
+
+
+</div>
+
+
+

@@ -1,19 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { AppServiceService } from './app-service.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent  implements OnInit{
-  title = 'dashfront';
-
-  constructor(private service :AppServiceService){
-
-  }
-  ngOnInit() {
-   // this.getDataFromAPI();
-  }
-
+export class AppComponent {
+  title = 'hrHelper';
 }

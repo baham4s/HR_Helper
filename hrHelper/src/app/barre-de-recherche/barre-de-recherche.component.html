@@ -1,0 +1,11 @@
+<div class ="nom">
+  <label for="nom">nom :</label>
+  <input type="text" id="nom"  name="nom" #boxnon (keyup.enter)="nom=boxnon.value" (blur)="nom=boxnon.value" >
+</div>
+<div class="prenom">
+  <label for="prenom">prenom :</label>
+  <input type="text" id="prenom" name="prenom" #boxprenon (keyup.enter)="prenom=boxprenon.value"(blur)="prenom=boxprenon.value" >
+</div>
+<div class="rechercher">
+  <button (click)="rechercher()"> rechercher</button>
+</div>

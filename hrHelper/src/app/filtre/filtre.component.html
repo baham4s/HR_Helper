@@ -1,0 +1,27 @@
+
+<div class="liste">
+  <ul>
+    <li><input type="button" value="Valider la reponse" onclick="ajouterFiltre()"></li>
+    <li><button (click)="ajouterFiltre('test')"> noms</button>
+      <ul>
+        ville   <input type="text" id="ville" name="ville" #boxville (keyup.enter)="ville=boxville.value"(blur)="ville=boxville.value" >
+
+        <li><button (click)="villeBouton('Le Mans')"> Ville</button>
+        </li>
+        <li><button (click)="ajouterFiltre('ouiii')"> debut</button></li>
+      </ul>
+    </li>
+    <li><button (click)="resetFiltre()"> reset</button></li>
+  </ul>
+</div>
+
+
+
+
+<div class="listeFiltre">
+  Liste des filtres:
+  {{content}}
+  {{filtre}}
+</div>
+
+
