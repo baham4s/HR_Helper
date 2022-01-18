@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BarreDeRechercheComponent } from './barre-de-recherche.component';
+import { BarreRechercheComponent } from './barre-recherche.component';
 
-describe('BarreDeRechercheComponent', () => {
-  let component: BarreDeRechercheComponent;
-  let fixture: ComponentFixture<BarreDeRechercheComponent>;
+describe('BarreRechercheComponent', () => {
+  let component: BarreRechercheComponent;
+  let fixture: ComponentFixture<BarreRechercheComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BarreDeRechercheComponent ]
+      declarations: [ BarreRechercheComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BarreDeRechercheComponent);
+    fixture = TestBed.createComponent(BarreRechercheComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

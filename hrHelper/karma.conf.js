@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/hr-helper'),
+      dir: require('path').join(__dirname, './coverage/dashfront'),
       subdir: '.',
       reporters: [
         { type: 'html' },
