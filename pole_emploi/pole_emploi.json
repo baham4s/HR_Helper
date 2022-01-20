@@ -1,0 +1,594 @@
+[
+    {
+        "DateMiseEnLigne": "Profil mis à jour le 15/12/2021",
+        "titre": "Diplomé de l'Institut Supérieur d’Électronique de Paris (ISEP), je recherche actuellement un emploi en tant qu'ingénieur logiciel.",
+        "dispo": "Disponibilité immédiate",
+        "ptsForts": [
+            "Algorithmique",
+            "Analyser les besoins du client",
+            "Architecture web",
+            "Concevoir et développer les programmes et applications informatiques",
+            "Langage informatique Python"
+        ],
+        "experience": [
+            {
+                "titre": "Stage Data Science et web FullStack | IRT SystemX (Bâtiment 660 DIGITEO, Rue Noetzlin, 91190 Gif-sur-Yvette)",
+                "duree": "de janv. 2021 à juil. 2021 (7 mois)"
+            },
+            {
+                "titre": "Stage R&D ; développeur FullStack | Hello Watt (10 rue Penthièvre, 75008 Paris)",
+                "duree": "de juil. 2019 à déc. 2019 (6 mois)"
+            },
+            {
+                "titre": "Stage R&D ; développeur FullStack | Partoo (Pépinère 27, 27 Rue du Chemin Vert, 75011 Paris)",
+                "duree": "de juin 2017 à juil. 2017 (2 mois)"
+            },
+            {
+                "titre": "Stage lycée ; support informatique | IBC New York (152-01 Rockaway Blvd, Jamaica, NY 11434, États-Unis)",
+                "duree": "de juin 2016 à juil. 2016 (2 mois)"
+            }
+        ],
+        "formation": [
+            {
+                "titre": "Ingénieur logiciel diplômé de l'ISEP (Institut Supérieur d'Électronique de Paris) ",
+                "niveau": " Bac+5 et plus ou équivalents",
+                "duree": "2021"
+            }
+        ],
+        "competence": [
+            "Savoir-être professionnels (3)"
+        ],
+        "savoirEtre": [
+            "Autonomie",
+            "Curiosité",
+            "Rigueur"
+        ],
+        "langues": [
+            "Anglais (Courant)",
+            "Espagnol (Intermédiaire)",
+            "Japonais (Débutant)"
+        ],
+        "permis": [
+            "B - Véhicule léger"
+        ]
+    },
+    {
+        "DateMiseEnLigne": "Profil mis à jour le 05/11/2021",
+        "titre": "Ingénieur en mécanique et simulation numérique recherche partenariats pour fabrication d'un capteur solaire thermique.",
+        "dispo": "Disponibilité immédiate",
+        "ptsForts": [
+            "Curiosité",
+            "Force de proposition",
+            "Mécanique",
+            "Concevoir un dossier technique de définition du projet",
+            "Intervenir en développement"
+        ],
+        "experience": [
+            {
+                "titre": "Associé d'une coopérative en développement informatique | Pythonian SCOP ARL (Paris, Vierzon)",
+                "duree": "de août 2015 à avr. 2021 (5 ans et 9 mois)"
+            },
+            {
+                "titre": "Développeur informatique | Coopérative d'Activités et d'Emploi Artefacts (Orléans, Vierzon, Paris, Würzburg - Allemagne -)",
+                "duree": "de mars 2011 à juin 2015 (4 ans et 4 mois)"
+            },
+            {
+                "titre": "Ingénieur en informatique scientifique | Logilab (Paris)",
+                "duree": "de oct. 2007 à févr. 2011 (3 ans et 5 mois)"
+            }
+        ],
+        "formation": [
+            {
+                "titre": "Ingénieur de Supméca Paris ",
+                "niveau": " Bac+5 et plus ou équivalents",
+                "duree": "2007"
+            },
+            {
+                "titre": "Master of science in Engineering at Technical University of Denmark (DTU) ",
+                "niveau": " Bac+5 et plus ou équivalents",
+                "duree": "2007"
+            }
+        ],
+        "competence": [
+            "null"
+        ],
+        "savoirEtre": [
+            "Curiosité",
+            "Force de proposition"
+        ],
+        "langues": [
+            "Anglais (Courant)",
+            "Portugais (Débutant)"
+        ],
+        "permis": [
+            "B - Véhicule léger"
+        ]
+    },
+    {
+        "DateMiseEnLigne": "Profil mis à jour le 17/01/2022",
+        "titre": "Développeur web débutant",
+        "dispo": "Disponibilité immédiate",
+        "ptsForts": [
+            "Curiosité",
+            "Rigueur",
+            "Analyser des problèmes techniques",
+            "Concevoir et développer les programmes et applications informatiques",
+            "Programmation orientée objet - POO"
+        ],
+        "experience": [
+            {
+                "titre": "Stagiaire développeur | OVH (Roubaix)",
+                "duree": "de mars 2017 à août 2017 (6 mois)"
+            },
+            {
+                "titre": "Stagiaire développeur | Inria Lille, équipe RMoD (Inira Lille)",
+                "duree": "de avr. 2015 à juil. 2015 (4 mois)"
+            },
+            {
+                "titre": "Stagiaire développeur | Synectique (Lille, Inria)",
+                "duree": "de janv. 2014 à juin 2014 (6 mois)"
+            }
+        ],
+        "formation": [
+            {
+                "titre": "Spécialisation React, école O'Clock",
+                "niveau": "null",
+                "duree": "2020"
+            },
+            {
+                "titre": "Professeur Enseignant Stagiaire ",
+                "niveau": " Bac+5 et plus ou équivalents",
+                "duree": "2019"
+            },
+            {
+                "titre": "Master TIC, Infrastructures, Intégrité et Répartition ",
+                "niveau": " Bac+5 et plus ou équivalents",
+                "duree": "2017"
+            }
+        ],
+        "competence": [
+            "Savoir-être professionnels (5)"
+        ],
+        "savoirEtre": [
+            "Autonomie",
+            "Capacité d'adaptation",
+            "Curiosité",
+            "Rigueur",
+            "Travail en équipe"
+        ],
+        "langues": [
+            "Anglais (Courant)",
+            "Allemand (Débutant)"
+        ],
+        "permis": [
+            "A - Moto",
+            "B - Véhicule léger"
+        ]
+    },
+    {
+        "DateMiseEnLigne": "Profil mis à jour le 05/01/2022",
+        "titre": "Ingénieur Informatique Débutant",
+        "dispo": "Disponibilité immédiate",
+        "ptsForts": [
+            "Autonomie",
+            "Algorithmique",
+            "Concevoir et développer les programmes et applications informatiques",
+            "Langage informatique Java",
+            "Node.js"
+        ],
+        "experience": [
+            {
+                "titre": "Apprenti ingénieur informatique | Safran Aircraft Engines (Villaroche, 77550, France)",
+                "duree": "de sept. 2018 à sept. 2021 (3 ans)"
+            },
+            {
+                "titre": "Apprenti développeur web | Altaprofits (Paris, 75002, France)",
+                "duree": "de sept. 2017 à août 2018 (11 mois)"
+            },
+            {
+                "titre": "Equipier Polyvalent | McDonald's (Couilly-Pont-aux-Dames, 77860, France)",
+                "duree": "de déc. 2016 à janv. 2017 (2 mois)"
+            }
+        ],
+        "formation": [
+            {
+                "titre": "Ingénieur informatique ",
+                "niveau": " Bac+5 et plus ou équivalents",
+                "duree": "2021"
+            },
+            {
+                "titre": "Diplôme universitaire de technologie spécialité informatique ",
+                "niveau": " Bac+2 ou équivalents",
+                "duree": "2018"
+            }
+        ],
+        "competence": [
+            "Savoir-être professionnels (4)",
+            "Autonomie",
+            "Rigueur",
+            "Sens de l'organisation",
+            "Travail en équipe",
+            "Langues (2)",
+            "Français (Courant)",
+            "Anglais (Intermédiaire)",
+            "Permis (2)",
+            "A2 - Moto <= 600 cm3"
+        ],
+        "savoirEtre": [
+            "Autonomie",
+            "Rigueur",
+            "Sens de l'organisation",
+            "Travail en équipe"
+        ],
+        "langues": [
+            "Français (Courant)",
+            "Anglais (Intermédiaire)"
+        ],
+        "permis": [
+            "A2 - Moto <= 600 cm3",
+            "B - Véhicule léger"
+        ]
+    },
+    {
+        "DateMiseEnLigne": "Profil mis à jour le 04/01/2022",
+        "titre": "Développeur / Développeuse informatique",
+        "dispo": "Disponibilité immédiate",
+        "ptsForts": [
+            "Javascript (incluant ES6)",
+            "Langage de programmation Go",
+            "Python 3",
+            "Système d'exploitation Linux"
+        ],
+        "experience": [
+            {
+                "titre": "Web designer | Ed. Monsieur Toussaint Louverture",
+                "duree": "de juil. 2016 à juil. 2019 (3 ans)"
+            },
+            {
+                "titre": "Concepteur de livres électroniques | Editions Monsieur Toussaint Louverture",
+                "duree": "de janv. 2012 à juil. 2021 (9 ans et 7 mois)"
+            },
+            {
+                "titre": "Consulting communication | Compagnie Wandering Souls",
+                "duree": "de août 2011 à déc. 2011 (5 mois)"
+            },
+            {
+                "titre": "Conseil en communication | Compagnie Wandering Souls",
+                "duree": "de juil. 2011 à déc. 2011 (6 mois)"
+            },
+            {
+                "titre": "Rédacteur culturel | Calixte (Sophia-Antipolis)",
+                "duree": "juil. 2009"
+            },
+            {
+                "titre": "Conseil informatique | Forum Jacques Prévert",
+                "duree": "de juil. 2008 à août 2008 (2 mois)"
+            },
+            {
+                "titre": "Consulting technique | Forum Jacques Prévert (Carros)",
+                "duree": "juil. 2008"
+            },
+            {
+                "titre": "Conseil et développement de projet | Château de Cenfosse",
+                "duree": "juin 2008"
+            },
+            {
+                "titre": "Consulting technique | Chateau de Cenfosse (Bourgogne)",
+                "duree": "juin 2008"
+            },
+            {
+                "titre": "Médiateur | Mairie de Lapleau",
+                "duree": "de nov. 2001 à juil. 2007 (5 ans et 9 mois)"
+            },
+            {
+                "titre": "CHARGE DE COM. /INFOR. | MAIRIE DE LAPLEAU",
+                "duree": "de janv. 2001 à août 2007 (6 ans et 8 mois)"
+            }
+        ],
+        "formation": [
+            {
+                "titre": "Design Patterns in Go ",
+                "niveau": " Bac+3, Bac+4 ou équivalents",
+                "duree": "2021"
+            },
+            {
+                "titre": "gRPC [Golang] Master Class : build modern API and microservices ",
+                "niveau": " Bac+2 ou équivalents",
+                "duree": "2021"
+            },
+            {
+                "titre": "Internet of Things with Microcontrollers: a hands-on course",
+                "niveau": "null",
+                "duree": "2020"
+            },
+            {
+                "titre": "MongoDB for Python Developers ",
+                "niveau": " Bac+2 ou équivalents",
+                "duree": "2018"
+            },
+            {
+                "titre": "Live Object Programming in Pharo ",
+                "niveau": " Bac+2 ou équivalents",
+                "duree": "2016"
+            },
+            {
+                "titre": "Introduction to functional programming ",
+                "niveau": " Bac+3, Bac+4 ou équivalents",
+                "duree": "2015"
+            },
+            {
+                "titre": "Programming in F# ",
+                "niveau": " Bac+2 ou équivalents",
+                "duree": "2015"
+            },
+            {
+                "titre": "MAITRISE DE PSYCHOLOGIE SOCIALE DE LA COGNITION ",
+                "niveau": " Bac+3, Bac+4 ou équivalents",
+                "duree": "1998"
+            },
+            {
+                "titre": "Maitrise de psychologie sociale de la cognition ",
+                "niveau": " Bac+3, Bac+4 ou équivalents",
+                "duree": "1998"
+            },
+            {
+                "titre": "LICENCE DE PSYCHOLOGIE GENERALE ET SOCIALE ",
+                "niveau": " Bac+3, Bac+4 ou équivalents",
+                "duree": "1997"
+            }
+        ],
+        "competence": [
+            "Savoir-être professionnels (4)",
+            "Autonomie",
+            "Curiosité",
+            "Force de proposition",
+            "Sens de la communication",
+            "Langues (1)",
+            "Anglais - anglais technique (Courant)",
+            "Permis (2)",
+            "A - Moto",
+            "B - Véhicule léger"
+        ],
+        "savoirEtre": [
+            "Autonomie",
+            "Curiosité",
+            "Force de proposition",
+            "Sens de la communication"
+        ],
+        "langues": [
+            "Anglais - anglais technique (Courant)"
+        ],
+        "permis": [
+            "A - Moto",
+            "B - Véhicule léger"
+        ]
+    },
+    {
+        "DateMiseEnLigne": "Profil mis à jour le 17/12/2021",
+        "titre": "Rémi Thiébaut, data scientist",
+        "dispo": "Disponibilité immédiate",
+        "ptsForts": [
+            "Capacité d'adaptation",
+            "Concevoir et développer les programmes et applications informatiques",
+            "Informatique scientifique et technique",
+            "Traitement du signal",
+            "Anglais"
+        ],
+        "experience": [
+            {
+                "titre": "Stagiaire en Data Science (R&D) | bioMérieux (La Balme-les-Grottes, Auvergne-Rhône-Alpes, France)",
+                "duree": "de févr. 2021 à juil. 2021 (6 mois)"
+            },
+            {
+                "titre": "Stage de développeur informatique | Novadiscovery (Lyon)",
+                "duree": "de mai 2020 à juil. 2020 (3 mois)"
+            },
+            {
+                "titre": "Stagiaire en développement logiciel | Centre de Recherche Astrophysique de Lyon (CRAL) (Lyon)",
+                "duree": "de juin 2017 à juil. 2017 (2 mois)"
+            },
+            {
+                "titre": "Stagiaire en test logiciel | (Lyon)",
+                "duree": "de juin 2014 à juil. 2014 (2 mois)"
+            }
+        ],
+        "formation": [
+            {
+                "titre": "Diplôme d'ingénieur en Bioinformatique et Modélisation de l'INSA Lyon ",
+                "niveau": " Bac+5 et plus ou équivalents",
+                "duree": "2021"
+            },
+            {
+                "titre": "Echange universitaire ",
+                "niveau": " Bac+5 et plus ou équivalents",
+                "duree": "2020"
+            },
+            {
+                "titre": "Cursus universitaire préparatoire aux grandes écoles ",
+                "niveau": " Bac+2 ou équivalents",
+                "duree": "2018"
+            }
+        ],
+        "competence": [
+            "null"
+        ],
+        "savoirEtre": [
+            "Autonomie",
+            "Capacité d'adaptation",
+            "Curiosité",
+            "Force de proposition",
+            "Gestion du stress",
+            "Prise de recul",
+            "Sens de la communication",
+            "Travail en équipe"
+        ],
+        "langues": [
+            "Anglais (Courant)",
+            "Français (Courant)",
+            "Allemand (Débutant)"
+        ],
+        "permis": [
+            "B - Véhicule léger"
+        ]
+    },
+    {
+        "DateMiseEnLigne": "Profil mis à jour le 09/12/2021",
+        "titre": "Développeur / Développeuse informatique",
+        "dispo": "Disponibilité immédiate",
+        "ptsForts": [
+            "null"
+        ],
+        "experience": [
+            {
+                "titre": "Développeur informatique | Oasiswork ( 44000 Nantes )",
+                "duree": "de mars 2013 à juin 2013 (4 mois)"
+            },
+            {
+                "titre": "Développeur informatique | Chrono-Link ( ChronoFlex, 44 Saint-Herblain )",
+                "duree": "de sept. 2008 à janv. 2009 (5 mois)"
+            },
+            {
+                "titre": "Développeur informatique | Adeuza S.A. ( 44 Nantes )",
+                "duree": "de sept. 2007 à déc. 2007 (4 mois)"
+            }
+        ],
+        "formation": [
+            {
+                "titre": "Concepteur Développeur Informatique ( IMIE - Rezé ) ",
+                "niveau": " Bac+3, Bac+4 ou équivalents",
+                "duree": "2011"
+            },
+            {
+                "titre": "Chef de Projet ( ENI Ecole Informatique - Nantes ) ",
+                "niveau": " Bac+3, Bac+4 ou équivalents",
+                "duree": "2007"
+            },
+            {
+                "titre": "DEST informatique ( CNAM - Nantes ) ",
+                "niveau": " Bac+3, Bac+4 ou équivalents",
+                "duree": "2005"
+            },
+            {
+                "titre": "Développeur informatique (AFPA Champs/Marne - 77) ",
+                "niveau": " Bac+2 ou équivalents",
+                "duree": "2003"
+            }
+        ],
+        "competence": [
+            "null"
+        ],
+        "savoirEtre": [
+            "null"
+        ],
+        "langues": [
+            "Anglais (Courant)",
+            "Espagnol (Débutant)"
+        ],
+        "permis": [
+            "B - Véhicule léger"
+        ]
+    },
+    {
+        "DateMiseEnLigne": "Profil mis à jour le 03/12/2021",
+        "titre": "Développeur Informatique - Intelligence Artificielle",
+        "dispo": "Disponibilité immédiate",
+        "ptsForts": [
+            "deep learning",
+            "Informatique scientifique et technique",
+            "Langage informatique Python",
+            "vision par ordinateur",
+            "Langage informatique C/C++"
+        ],
+        "experience": [
+            {
+                "titre": "Ingénieur d'étude | Stilog (La ciotat )",
+                "duree": "de août 2019 à janv. 2020 (6 mois)"
+            },
+            {
+                "titre": "Administrateur Réseau | Softway Medical",
+                "duree": "de févr. 2019 à sept. 2019 (8 mois)"
+            },
+            {
+                "titre": "Developpeur Python JUNIOR | Orange groupe (PACA)",
+                "duree": "de juil. 2017 à août 2017 (2 mois)"
+            },
+            {
+                "titre": "Support IT [Stage de Master] | STMICROELECTRONICS",
+                "duree": "de avr. 2016 à août 2016 (5 mois)"
+            }
+        ],
+        "formation": [
+            {
+                "titre": "Deep Learning & Vision par Ordinateur ",
+                "niveau": " Bac+5 et plus ou équivalents",
+                "duree": "2018"
+            }
+        ],
+        "competence": [
+            "Savoir-être professionnels (3)",
+            "Autonomie",
+            "Capacité d'adaptation",
+            "Curiosité",
+            "Langues (4)",
+            "Anglais (Courant)"
+        ],
+        "savoirEtre": [
+            "Autonomie",
+            "Capacité d'adaptation",
+            "Curiosité"
+        ],
+        "langues": [
+            "Anglais (Courant)",
+            "Allemand (Intermédiaire)",
+            "Japonais (Débutant)",
+            "Russe (Débutant)"
+        ],
+        "permis": [
+            "null"
+        ]
+    },
+    {
+        "DateMiseEnLigne": "Profil mis à jour le 17/11/2021",
+        "titre": "Jeune motivé à enter dans le monde du travail",
+        "dispo": "Disponibilité immédiate",
+        "ptsForts": [
+            "Autonomie",
+            "Sens de la communication",
+            "Travail en équipe",
+            "Anglais"
+        ],
+        "experience": [
+            {
+                "titre": "Dévellopeur Web Back-end Node.js/React.js | BTU PROTOCOL (Levallois Perret, Haut-de-Seine, France)",
+                "duree": "de sept. 2019 à déc. 2019 (4 mois)"
+            }
+        ],
+        "formation": [
+            {
+                "titre": "Epitech Paris école d'informatique ",
+                "niveau": " 2nd ou 1ère achevée",
+                "duree": "2021"
+            },
+            {
+                "titre": "Baccalaureat Scientifique ",
+                "niveau": " Bac ou équivalent",
+                "duree": "2018"
+            }
+        ],
+        "competence": [
+            "null"
+        ],
+        "savoirEtre": [
+            "Autonomie",
+            "Capacité de décision",
+            "Sens de la communication",
+            "Travail en équipe"
+        ],
+        "langues": [
+            "Anglais (Intermédiaire)"
+        ],
+        "permis": [
+            "null"
+        ]
+    }
+]
