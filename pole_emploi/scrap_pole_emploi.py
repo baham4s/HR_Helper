@@ -126,7 +126,7 @@ def create_dic_comp(tab_personne):
 def main():
     # Options permettant de ne pas afficher le navigateur
     options = Options()
-    # options.add_argument('--headless')
+    options.add_argument('--headless')
 
     driver = webdriver.Firefox(options=options)
     # Chargement de la page d'accueil
@@ -224,4 +224,5 @@ def main():
 
 
 main()
+
 #%%
