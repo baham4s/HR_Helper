@@ -6,29 +6,36 @@
     src="../assets/img/hr.png"
   />
   <span>hrHelper</span>
-  <button pButton pRipple id="b-inscrCo" type="button" label="S'inscrire" class="p-button-text"></button>
-
 </div>
 <div class="content" >
 
-  <div class="gauche" >
-    <app-filtre (notify)="onNotifyClickedFiltre($event)"></app-filtre>
-  </div>
 
+  <div class="personne">
 
-  <div class="principale">
-    <div class="recherche">
-      <app-barre-de-recherche (notify)="onNotifyClickedBarreDeREcherche($event)"></app-barre-de-recherche>
+      <div class="haut">
+        <button pButton pRipple type="button" label="DIPLOMÉ DE L'INSTITUT SUPÉRIEUR D’ÉLECTRONIQUE DE PARIS (ISEP)" class="p-button-outlined p-button-info"(click)="ouverture_Info()"></button>
 
-
-    </div>
-    <div class = "reponse">
-
-      <p> filtre de gauche{{FiltreDeGauche}}</p>
-      <p> filtre du haut{{FiltreAuDessus}}</p>
-
+      </div>
+    <div class="texte">
+zzzzz
     </div>
   </div>
+
+
+
+
+  <div id="menuInfo">
+    <app-information-personne></app-information-personne>
+  </div>
+
+  <div id="menuFiltre">
+    <app-filtre></app-filtre>
+  </div>
+  <div class="bouton_filtre">
+    <p-button label="Click" icon="p-button-icon pi pi-check" class="p-button-rounded p-button p-component p-button-icon-only"iconPos="center" (click)="ouverture_filtre()"></p-button>
+
+  </div>
+
 
 
 </div>

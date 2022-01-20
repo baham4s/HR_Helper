@@ -9,6 +9,15 @@ import {RippleModule} from "primeng/ripple";
 import { BarreDeRechercheComponent } from './barre-de-recherche/barre-de-recherche.component';
 import { DisplayComponent } from './display/display.component';
 import { FiltreComponent } from './filtre/filtre.component';
+import {InputTextModule} from 'primeng/inputtext';
+import {InputSwitchModule} from 'primeng/inputswitch';
+import {CascadeSelectModule} from 'primeng/cascadeselect';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {DropdownModule} from 'primeng/dropdown';
+import {CheckboxModule} from 'primeng/checkbox';
+import { InformationPersonneComponent } from './information-personne/information-personne.component';
+
+
 
 @NgModule({
   declarations: [
@@ -16,6 +25,7 @@ import { FiltreComponent } from './filtre/filtre.component';
     BarreDeRechercheComponent,
     DisplayComponent,
     FiltreComponent,
+    InformationPersonneComponent,
 
   ],
   imports: [
@@ -23,7 +33,13 @@ import { FiltreComponent } from './filtre/filtre.component';
     AppRoutingModule,
     ButtonModule,
     RippleModule,
-    HttpClientModule
+    HttpClientModule,
+    InputTextModule,
+    InputSwitchModule,
+    CascadeSelectModule,
+    MultiSelectModule,
+    DropdownModule,
+    CheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

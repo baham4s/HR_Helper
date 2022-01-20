@@ -21,36 +21,6 @@ p {
 }
 
 
-.gauche{
-  float: left;
-  border: 2px dotted gold;
-  height: 500px;
-  width: 29%;
-
-}
-.content {
-  margin: 82px ;
-  border: 2px dotted rgb(255, 0, 242);
-}
-
-.principale{
-  float: right;
-  width: 70%;
-
-
-}
-
-.spacer {
-  flex: 1;
-}
-.recherche{
-  border: 2px dotted rgb(128, 0, 107);
-  height: 100px;
-}
-.reponse{
-  border: 2px dotted rgb(73, 128, 0);
-  height: 500px;
-}
 .toolbar {
   position: absolute;
   top: 0;
@@ -68,37 +38,51 @@ p {
   margin: 0 16px;
 }
 
-
-.metier{
-  float: left;
-
-}
-.metier label {
-  display: block;
-  font: 1rem 'Fira Sans', sans-serif;
-}
-
-input,
-.metier label {
-  margin: .4rem 0;
-}
-
-.lieux{
-  margin-left: 50%;
-}
-.rechercher{
-  float: right;
+#menuInfo{
+  display: none;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  height: 90%;
+  width: 55%;
+  border-width:1px;
+  border-style:solid;
+  border-color:#1976d2;
 }
 
 
+#menuFiltre{
+  display: none;
+  position: fixed;
+  bottom: 65px;
+  right: 15px;
+  border-width:1px;
+  border-style:solid;
+  border-color:#1976d2;
+}
 
 
 
 
+.content{
+  margin-top: 65px;
+}
 
+.personne{
+  border-width:1px;
+  border-style:dotted;
+  border-color:black;
+  height: 150px;
+}
 
-
-
+.bouton_filtre{
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+}
+.haut{
+  width: 100%;
+}
 
 /* Responsive Styles */
 @media screen and (max-width: 767px) {

@@ -1,27 +1,66 @@
+<div class="filtre">
 
-<div class="liste">
-  <ul>
-    <li><input type="button" value="Valider la reponse" onclick="ajouterFiltre()"></li>
-    <li><button (click)="ajouterFiltre('test')"> noms</button>
-      <ul>
-        ville   <input type="text" id="ville" name="ville" #boxville (keyup.enter)="ville=boxville.value"(blur)="ville=boxville.value" >
 
-        <li><button (click)="villeBouton('Le Mans')"> Ville</button>
-        </li>
-        <li><button (click)="ajouterFiltre('ouiii')"> debut</button></li>
-      </ul>
-    </li>
-    <li><button (click)="resetFiltre()"> reset</button></li>
-  </ul>
+  <div class="dispo">
+    <div class="texteDispo">
+      <h3>Disponibilite  </h3>
+    </div>
+    <div class="boxDispo">
+       <div class="field-checkbox">
+        <!--   <p-checkbox name="group1" value="New York" [(ngModel)]="selectedCities" inputId="ny"></p-checkbox>-->
+        <p-checkbox name="group1" value="New York"  inputId="ny"></p-checkbox>
+        <label for="ny">New York</label>
+      </div>
+        <div class="field-checkbox">
+           <p-checkbox name="group1" value="San Francisco"  inputId="sf"></p-checkbox>
+           <label for="sf">San Francisco</label>
+         </div>
+       </div>
+     </div>
+     <br>
+
+     <div class="etude">
+       <div class="texteEtude">
+         <h3>Etude  </h3>
+       </div>
+       <div class="boxEtude">
+         <!-- <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>-->
+       <p-dropdown  optionLabel="name"></p-dropdown>
+
+     </div>
+   </div>
+   <br>
+
+   <div class="langue">
+     <div class="textePemis">
+       <h3>Langues  </h3>
+     </div>
+     <div class="boxLangue">
+       <p-dropdown  optionLabel="name"></p-dropdown>
+
+       <!-- <p-multiSelect [options]="cities" [(ngModel)]="selectedCities3" defaultLabel="Select a City" optionLabel="name" display="chip"></p-multiSelect> -->
+    </div>
+  </div>
+  <br>
+  <div class="permis">
+    <div class="textePemis">
+      <h3>Permis  </h3>
+    </div>
+    <div class="ouiNon">
+      <p-inputSwitch formControlName="enabled"></p-inputSwitch>
+      <! -- voire la doc sur el site pour le fonctionnement -->
+    </div>
+  </div>
+  <br>
+  <div class="motCle">
+    <div class="cle">
+      <h3>mot cle </h3>
+    </div>
+    <div class="saisie_cle">
+      <input type="text" pInputText />
+    </div>
+  </div>
 </div>
 
-
-
-
-<div class="listeFiltre">
-  Liste des filtres:
-  {{content}}
-  {{filtre}}
-</div>
 
 

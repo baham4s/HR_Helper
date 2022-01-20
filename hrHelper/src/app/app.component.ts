@@ -13,6 +13,5 @@ export class AppComponent {
     document.getElementById('presentation').style.display='none';
     // @ts-ignore
     document.getElementById('main').style.display='block';
-
   }
 }
