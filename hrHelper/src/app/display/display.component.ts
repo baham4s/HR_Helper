@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+
 
 @Component({
   selector: 'app-display',
@@ -9,9 +11,6 @@ export class DisplayComponent implements OnInit {
   FiltreDeGauche:string="";
   FiltreAuDessus:string="";
 
-
-
-
   onNotifyClickedFiltre(message:string):void{
     this.FiltreDeGauche=message;
   }
@@ -20,9 +19,15 @@ export class DisplayComponent implements OnInit {
     this.FiltreAuDessus=message;
   }
 
-  constructor() { }
+  products = [];
+  totalAngularPackages: any;
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.dataService.sendGetRequest().subscribe(data=>{
+      console.log(data);
+    })
   }
 
 }
