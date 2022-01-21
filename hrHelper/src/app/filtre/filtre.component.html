@@ -7,13 +7,13 @@
     </div>
     <div class="boxDispo">
        <div class="field-checkbox">
-        <!--   <p-checkbox name="group1" value="New York" [(ngModel)]="selectedCities" inputId="ny"></p-checkbox>-->
-        <p-checkbox name="group1" value="New York"  inputId="ny"></p-checkbox>
-        <label for="ny">New York</label>
+        <p-checkbox name="group1" value="disponible" [(ngModel)]="dispoImmedia"  inputId="ny"></p-checkbox>
+        <label for="disponible">Disponible</label>
       </div>
+
         <div class="field-checkbox">
-           <p-checkbox name="group1" value="San Francisco"  inputId="sf"></p-checkbox>
-           <label for="sf">San Francisco</label>
+           <p-checkbox name="group1" value="plusTard" [(ngModel)]="dispoPlusTard" inputId="sf"></p-checkbox>
+           <label for="plusTard">Plus Tard</label>
          </div>
        </div>
      </div>
@@ -24,22 +24,20 @@
          <h3>Etude  </h3>
        </div>
        <div class="boxEtude">
-         <!-- <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>-->
-       <p-dropdown  optionLabel="name"></p-dropdown>
+         <p-multiSelect [options]="etude" [(ngModel)]="selectedEtude" defaultLabel="Etude" optionLabel="name" display="chip"></p-multiSelect>
 
      </div>
    </div>
    <br>
 
    <div class="langue">
-     <div class="textePemis">
+     <div class="texteLangue">
        <h3>Langues  </h3>
      </div>
      <div class="boxLangue">
-       <p-dropdown  optionLabel="name"></p-dropdown>
+        <p-multiSelect [options]="langue" [(ngModel)]="selectedLangue" defaultLabel="Langues" optionLabel="name" display="chip"></p-multiSelect>
 
-       <!-- <p-multiSelect [options]="cities" [(ngModel)]="selectedCities3" defaultLabel="Select a City" optionLabel="name" display="chip"></p-multiSelect> -->
-    </div>
+     </div>
   </div>
   <br>
   <div class="permis">
@@ -47,8 +45,17 @@
       <h3>Permis  </h3>
     </div>
     <div class="ouiNon">
-      <p-inputSwitch formControlName="enabled"></p-inputSwitch>
-      <! -- voire la doc sur el site pour le fonctionnement -->
+      <div class="sans">
+        <p> Sans   </p>
+
+      </div>
+
+      <p-inputSwitch [(ngModel)]="checked" ></p-inputSwitch>
+      <div class="avec">
+        <p>   Avec</p>
+
+      </div>
+
     </div>
   </div>
   <br>
@@ -57,7 +64,7 @@
       <h3>mot cle </h3>
     </div>
     <div class="saisie_cle">
-      <input type="text" pInputText />
+      <input type="text" pInputText #boxMotCle (keyup.enter)="ajouterFiltre(boxMotCle.value)"(blur)="ajouterFiltre(boxMotCle.value)"/>
     </div>
   </div>
 </div>

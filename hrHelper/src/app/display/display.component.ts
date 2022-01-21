@@ -8,13 +8,13 @@ import { DataService } from '../data.service';
   styleUrls: ['./display.component.scss']
 })
 export class DisplayComponent implements OnInit {
-  FiltreDeGauche:string="";
+  Filtre:string="";
   FiltreAuDessus:string="";
   ouvertInfo:string="non";
   ouvertFIltre:string="non";
 
   onNotifyClickedFiltre(message:string):void{
-    this.FiltreDeGauche=message;
+    this.Filtre=message;
   }
 
   // ouverture des filtres
@@ -57,6 +57,8 @@ export class DisplayComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.sendGetRequest().subscribe(data=>{
       console.log(data);
+      console.log(this.Filtre);
+
     })
   }
 

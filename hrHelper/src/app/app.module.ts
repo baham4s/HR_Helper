@@ -16,6 +16,8 @@ import {MultiSelectModule} from 'primeng/multiselect';
 import {DropdownModule} from 'primeng/dropdown';
 import {CheckboxModule} from 'primeng/checkbox';
 import { InformationPersonneComponent } from './information-personne/information-personne.component';
+import {FormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -39,7 +41,9 @@ import { InformationPersonneComponent } from './information-personne/information
     CascadeSelectModule,
     MultiSelectModule,
     DropdownModule,
-    CheckboxModule
+    CheckboxModule,
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

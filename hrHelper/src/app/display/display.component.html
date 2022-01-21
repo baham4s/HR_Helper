@@ -28,8 +28,10 @@ zzzzz
     <app-information-personne></app-information-personne>
   </div>
 
-  <div id="menuFiltre">
-    <app-filtre></app-filtre>
+  <div class='slides'>
+    <div id="menuFiltre">
+      <app-filtre (notify)="onNotifyClickedFiltre($event)"></app-filtre>
+    </div>
   </div>
   <div class="bouton_filtre">
     <p-button label="Click" icon="p-button-icon pi pi-check" class="p-button-rounded p-button p-component p-button-icon-only"iconPos="center" (click)="ouverture_filtre()"></p-button>
