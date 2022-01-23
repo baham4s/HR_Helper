@@ -13,16 +13,12 @@ export class DisplayComponent implements OnInit {
   ouvertInfo:string="non";
   ouvertFIltre:string="non";
 
-  infoPersonne: Object = '';
+  infoPersonne: Object = "";
+  formation: Object = "";
+  titre: Object = "";
+  duree: Object = "";
+  niveau: Object = "";
   data:Object="" ;
-
-
-
-
-
-
-
-
 
   onNotifyClickedFiltre(message:string):void{
     this.Filtre=message;
@@ -53,12 +49,24 @@ export class DisplayComponent implements OnInit {
       this.ouvertInfo="non";
     }
     console.log(this.data);
+  }
 
-   // @ts-ignore
+  recupInfo():void{
+   //Récupération des informations d'une personne
+      // @ts-ignore
     this.infoPersonne=this.data[0];
-
-    //this.infoPersonne=this.data[0]["competence"];
-    //console.log(this.data[0][0])
+      // @ts-ignore
+   this.formation= this.data[0]["formation"];
+   console.log(this.formation);
+   for(var i in this.formation){
+      // @ts-ignore
+     this.titre = this.formation[i]["titre"];
+      // @ts-ignore
+     this.niveau = this.formation[i]["niveau"];
+      // @ts-ignore
+     this.duree = this.formation[i]["duree"];
+    }
+   
   }
 
 
@@ -79,6 +87,7 @@ export class DisplayComponent implements OnInit {
       //console.log(JSON.stringify(data))
       //this.data=JSON.stringify(data);
       this.data=data;
+      this.recupInfo();
     })
   }
 
