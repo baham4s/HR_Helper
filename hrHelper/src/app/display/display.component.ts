@@ -12,9 +12,15 @@ export class DisplayComponent implements OnInit {
   FiltreAuDessus:string="";
   ouvertInfo:string="non";
   ouvertFIltre:string="non";
-  data:Object="";
 
   infoPersonne: Object = '';
+  data:Object="" ;
+
+
+
+
+
+
 
 
 
@@ -46,7 +52,12 @@ export class DisplayComponent implements OnInit {
       document.getElementById('menuInfo').style.display='none';
       this.ouvertInfo="non";
     }
-    this.infoPersonne=this.data;
+    console.log(this.data);
+
+   // @ts-ignore
+    this.infoPersonne=this.data[0];
+
+    //this.infoPersonne=this.data[0]["competence"];
     //console.log(this.data[0][0])
   }
 
@@ -58,15 +69,16 @@ export class DisplayComponent implements OnInit {
 
   products = [];
   totalAngularPackages: any;
+  private object: any;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.dataService.sendGetRequest().subscribe(data=>{
       console.log(data);
+      //console.log(JSON.stringify(data))
+      //this.data=JSON.stringify(data);
       this.data=data;
-      console.log(this.Filtre);
-
     })
   }
 
