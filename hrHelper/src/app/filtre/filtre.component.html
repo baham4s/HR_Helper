@@ -67,6 +67,10 @@
       <input type="text" pInputText #boxMotCle (keyup.enter)="ajouterFiltre(boxMotCle.value)"(blur)="ajouterFiltre(boxMotCle.value)"/>
     </div>
   </div>
+  <div class="valider">
+    <button pButton pRipple type="button" label="Validé" class="p-button-outlined p-button-info"(click)="valider_filtre()"></button>
+  </div>
+
 </div>
 
 

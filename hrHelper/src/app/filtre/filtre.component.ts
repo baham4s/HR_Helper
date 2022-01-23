@@ -9,15 +9,13 @@ import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 
 export class FiltreComponent implements OnInit {
 
-  Filtre:any=["mangue","abricot"];
+  Filtre:any=[];
   MotCle='';
   checked: boolean=false;
-
   selectedLangue: any=[];
   langue: any[]=[];
   dispoImmedia="";
   dispoPlusTard="";
-
   selectedEtude: any=[];
   etude: any[]=[];
 
@@ -28,14 +26,20 @@ export class FiltreComponent implements OnInit {
   ajouterFiltre(element:string){
     this.Filtre.push(element);
     this.envoyerDonnées();
-    console.log("filtre total = "+this.Filtre);
-    console.log("checked = "+this.checked);
-    console.log("langue = "+this.langue);
-    console.log("etude = "+this.etude);
-    console.log("dispoImmedia = "+this.dispoImmedia);
-    console.log("dispoPlusTard = "+this.dispoPlusTard);
+
 
   }
+
+  valider_filtre(){
+    console.log("dispoImmedia = "+this.dispoImmedia);
+    console.log("dispoPlusTard = "+this.dispoPlusTard);
+    console.log(this.etude);
+    console.log(this.langue);
+    console.log("permis = "+this.checked);
+    console.log("filtre total = "+this.Filtre);
+  // ICI LES INFOS SONT PRET A ETRE ENVOYER DANS LE COMPOSANS DISPLAY POUR FILTRER
+  }
+
 
   envoyerDonnées(){
     console.log(this.Filtre);
@@ -45,7 +49,7 @@ export class FiltreComponent implements OnInit {
   constructor() {
     this.langue = [
       {name: 'Français', code: 'FR'},
-      {name: 'Espagnole', code: 'ES'},
+      {name: 'Espagnol', code: 'ES'},
       {name: 'Allemand', code: 'ALL'},
       {name: 'Anglais', code: 'AN'},
       {name: 'Autres', code: 'AU'}
@@ -62,10 +66,6 @@ export class FiltreComponent implements OnInit {
     ];
   }
 
-  ngOnInit(): void {
-    console.log("Testing ngOnInit");
-    console.log(this.Filtre);
-
-  }
+  ngOnInit(): void {}
 
 }
