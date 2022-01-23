@@ -1,9 +1,52 @@
 <div class="generale">
-  <p>{{dateDeMiseEnLigne}}</p>
-  <p>
-    Toutes les info de la personnes:{{Infos}}
-  </p>
+  <div class="DispLigne">
+    <div class="gauche">
+      {{dateDeMiseEnLigne}}
+    </div>
+    <div class="center">
+      {{permis}}
+    </div>
+    <div class="droite">
+      {{dispo}}
+    </div>
+  </div>
+  <br>
+  <div class="titre">
+    {{titre}}
+  </div>
 
-  <button pButton pRipple type="button" label="Validé" class="p-button-outlined p-button-info"(click)="afficher()"></button>
+  <div class="exForGra">
+    <div class="exFor">
+      <div class="ex">
+        {{experienceTitre}}
+      </div>
+      <div class="for">
+        {{formationSupp}}
+      </div>
+    </div>
+    <div class="graphe">
+    </div>
+  </div>
+
+  <div class="comLang">
+    <div class="com">
+      {{competence}}
+    </div>
+    <div class="lang">
+      {{langue}}
+    </div>
+  </div>
+
+  <div class="sePoi">
+    <div class="savoir">
+      {{savoirEtre}}
+    </div>
+    <div class="fort">
+      {{ptsFort}}
+    </div>
+  </div>
+
 
 </div>
+
+<button pButton pRipple type="button" label="Validé" class="p-button-outlined p-button-info"(click)="afficher()"></button>
