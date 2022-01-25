@@ -9,6 +9,8 @@ const cors = require('cors');
 
 const app = express();
 
+// mongoimport --uri mongodb+srv://hrhelper:hrhelper@nodeapp.bhdfx.mongodb.net/PoleEmploiDB --collection PoleEmploi --type JSON --file pole_emploi.json
+
 // Handle Cors Error
 app.use(cors());
 

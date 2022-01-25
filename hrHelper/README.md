@@ -26,7 +26,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-## Back-End
+## BDD MongoDB
+
+Pour stocker les données sur la BDD, nous utilisons MongoDB. Cette BDD est alimenter par un fichier JSON issue du scrapping grâce à MongoDBCompass.
+
+## Back-End BDD
 
 Faire fonctionner le Back-End avec Angular :
 	- se rendre dans le dossier "server" et lancer index.js avec : $node index.js (aucun message d'erreur de doit apparaitre)
@@ -39,5 +43,5 @@ Librairies à installer :
 Si tous se passe bien, dans la console, les données venant de MongoDB doivent apparaitre.
 
 Angular est lancer sur http://localhost:4200/ et le données viennent de http://localhost:3001/api/v1/profile. On remarque que 
-les deux dommaines sont différents donc CORS bloque les requetes. Pour regler le problème avec CORS, il a fallut faire un proxy 
+les deux domaines sont différents donc CORS bloque les requetes. Pour regler le problème avec CORS, il a fallut faire un proxy 
 pour tromper le navigateur et lui faire croire que les rêquetes sont de la même origine, du même domaine.
