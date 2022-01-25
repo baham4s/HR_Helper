@@ -1,2 +1,69 @@
-.generale{
+.DispLigne{
+  display: inline;
+}
+.gauche{
+  float: left;
+}
+.droite{
+  float: right;
+  right: 15px;
+}
+.titre{
+  margin-top: 30px;
+
+  text-align: center
+}
+
+.exForGra{
+  display: inline;
+  margin-top: 25px;
+}
+.exFor{
+  float: left;
+  margin-top: 25px;
+
+}
+.ex{
+  margin-top: 10px;
+  width: 50%;
+
+
+}
+.for{
+  margin-top: 10px;
+}
+.graphe{
+  float: right;
+  right: 15px;
+}
+.comLang{
+  display: inline;
+  margin-top: 25px;
+}
+.com{
+  float: left;
+  margin-top: 10px;
+  width: 50%;
+
+
+}
+.lang{
+  float: right;
+  margin-top: 10px;
+
+}
+
+.sePoi{
+  display: inline;
+  margin-top: 25px;
+}
+.savoir{
+  float: left;
+  margin-top: 10px;
+
+}
+.fort{
+  float: right;
+  margin-top: 10px;
+
 }

@@ -5,7 +5,7 @@
     alt="Angular Logo"
     src="../assets/img/hr.png"
   />
-  <span>hrHelper</span>
+  <span>HrHelper</span>
 </div>
 <div class="content" >
 
@@ -13,11 +13,12 @@
   <div class="personne">
 
       <div class="haut">
-        <button pButton pRipple type="button" label="DIPLOMÉ DE L'INSTITUT SUPÉRIEUR D’ÉLECTRONIQUE DE PARIS (ISEP)" class="p-button-outlined p-button-info"(click)="ouverture_Info()"></button>
+        <button pButton pRipple type="button" label="{{titre}}" class="p-button-outlined p-button-info"(click)="ouverture_Info()"></button>
 
       </div>
     <div class="texte">
-zzzzz
+      <!-- {{data}} -->
+      Formations : {{titre}} <br> {{niveau}} <br> {{duree}} <br>
     </div>
   </div>
 
@@ -25,7 +26,7 @@ zzzzz
 
 
   <div id="menuInfo">
-    <app-information-personne></app-information-personne>
+    <app-information-personne [Infos]="infoPersonne" ></app-information-personne>
   </div>
 
   <div class='slides'>
