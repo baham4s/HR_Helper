@@ -15,10 +15,16 @@ export class DisplayComponent implements OnInit {
 
   infoPersonne: Object = "";
   formation: Object = "";
-  titre: Object = "";
-  duree: Object = "";
+  titreFormation: Object = "";
+  dateFormation: Object = "";
   niveau: Object = "";
-  data:Object="" ;
+
+  titreProfil: Object = "";
+  dateMAJ: Object = "";
+  dispo: Object = "";
+
+  data:Object= "";
+  nbProfils: number=0;
 
   onNotifyClickedFiltre(message:string):void{
     this.Filtre=message;
@@ -51,22 +57,35 @@ export class DisplayComponent implements OnInit {
     console.log(this.data);
   }
 
-  recupInfo():void{
-   //Récupération des informations d'une personne
+  recupInfo(idPers: number):void{
+    //RECUPERATION INFO PERSONNE GENERAL
       // @ts-ignore
     this.infoPersonne=this.data[0];
+
+    //TITRE PROFIL
       // @ts-ignore
-   this.formation= this.data[0]["formation"];
-   console.log(this.formation);
-   for(var i in this.formation){
+    this.titreProfil = this.data[idPers]["titre"];
+
+    //FORMATION
       // @ts-ignore
-     this.titre = this.formation[i]["titre"];
-      // @ts-ignore
-     this.niveau = this.formation[i]["niveau"];
-      // @ts-ignore
-     this.duree = this.formation[i]["duree"];
+    this.formation= this.data[idPers]["formation"];
+    console.log(this.formation);
+    for(var i in this.formation){
+        // @ts-ignore
+      this.titreFormation = this.formation[i]["titre"];
+        // @ts-ignore
+      this.niveau = this.formation[i]["niveau"];
+        // @ts-ignore
+      this.dateFormation = this.formation[i]["duree"];
     }
    
+    //DATE MIS A JOUR
+      // @ts-ignore
+    this.dateMAJ = this.data[idPers]["DateMiseEnLigne"];
+
+    //DISPONIBILITE
+      // @ts-ignore
+    this.dispo = this.data[idPers]["dispo"];
   }
 
 
@@ -84,10 +103,13 @@ export class DisplayComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.sendGetRequest().subscribe(data=>{
       console.log(data);
-      //console.log(JSON.stringify(data))
-      //this.data=JSON.stringify(data);
       this.data=data;
-      this.recupInfo();
+      // @ts-ignore
+      this.nbProfils = this.data["length"];
+      console.log("Nb profils :", this.nbProfils);
+      for (let id = 0; id < this.nbProfils; id++) {
+        this.recupInfo(id);
+      }
     })
   }
 
