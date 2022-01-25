@@ -88,6 +88,46 @@ export class DisplayComponent implements OnInit {
     this.dispo = this.data[idPers]["dispo"];
   }
 
+  //https://www.w3schools.com/jsref/event_onload.asp
+//https://developer.mozilla.org/fr/docs/Web/API/Document/createElement
+//https://www.npmjs.com/package/ng-onload
+
+
+
+  newDivProfil(): void{
+    //Création des nouvelles div pour une personne
+    var newDivPers = document.createElement("div");
+    newDivPers.className = 'personne';
+
+    var newDivHaut = document.createElement("div");
+    newDivHaut.className = 'haut';
+    //Contenu de la div haut
+    var newButton = document.createElement("button");
+    newButton.className = 'p-button-outlined p-button-info';
+    newButton.type = 'button';
+      // @ts-ignore
+    newButton.value = this.titreProfil;
+    newDivHaut.append(newButton);
+
+
+
+
+    var newDivText = document.createElement("div");
+    newDivText.className = 'texte';
+    //Contenu de la div texte
+    newDivText.innerHTML = '<p>Formations : <br>' + this.dateFormation + ' - ' + this.titreFormation + ' - ' + this.niveau + ' <br> ' + this.dispo + ' <br> ' + this.dateMAJ + ' </p>';
+
+    //Ajout des div haut et text à la div personne
+    newDivPers.append(newDivHaut, newDivText);
+    console.log(newDivPers);
+
+    //Récupération du div contenant la liste des profils
+    var divList = document.getElementById("listeProfils");
+      // @ts-ignore
+    divList.append(newDivPers);
+
+  }
+
 
 
   onNotifyClickedBarreDeREcherche(message:string):void{
@@ -109,6 +149,7 @@ export class DisplayComponent implements OnInit {
       console.log("Nb profils :", this.nbProfils);
       for (let id = 0; id < this.nbProfils; id++) {
         this.recupInfo(id);
+        this.newDivProfil();
       }
     })
   }
