@@ -1,5 +1,3 @@
-# TODO: Régler erreur + de 10 personnes
-
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.firefox.options import Options
@@ -13,9 +11,17 @@ def create_dic_xp_form(tab_personne):
 
     # Suppression des liste vide dans ma liste de personne
     z = [x for x in tab_personne if x != []]
+
     for personne in z:
         # Chargement des informations basique dans le dicitonnaire
-        dico = {'DateMiseEnLigne': personne[0][0], 'titre': personne[0][1], 'dispo': personne[0][2]}
+        dico = {}
+        for i in range(len(personne)):
+            for j in range(len(personne[i])):
+                if 'Profil' in personne[i][j]:
+                    dico['DateMiseEnLigne'] = personne[i][j]
+                    dico['titre'] = personne[i][j + 1]
+                if 'Disponibilité' in personne[i][j]:
+                    dico['dispo'] = personne[i][j]
 
         # Cas ou la personne a renseigner des points forts
         lst_pts_forts = ["null"]
@@ -123,14 +129,24 @@ def create_dic_comp(tab_personne):
     return ret
 
 
+def stop(driver, code):
+    driver.quit()
+    if code == 0:
+        print("[+] Data !")
+    elif code == 1:
+        print("[-] Erreur")
+
+
 def main():
     # Options permettant de ne pas afficher le navigateur
+    nb_profil = 0
     options = Options()
     options.add_argument('--headless')
 
     driver = webdriver.Firefox(options=options)
     # Chargement de la page d'accueil
     driver.get("https://entreprise.pole-emploi.fr/accueil/description/profil")
+
     print("[+] Page atteinte")
     # Input des mots clé de l'utilisateur
     driver.find_element_by_id('token-input-champsMultitagQuoi').send_keys("Haskell")
@@ -138,21 +154,29 @@ def main():
     driver.find_element_by_id('footer_tc_privacy_button_2').click()
     # Lancement de la recherche
     driver.find_element_by_id('lancerRechercheCv').click()
-    print("[+] Recherche lancer")
+    if 'indisponible' in driver.title:
+        print("serveur pas dispo")
+        stop(driver, 1)
+        return
+    else:
+        print("[+] Recherche lancer")
 
     # Récupération du nombre de profil possible a scrapper
     try:
         nb_profil = driver.find_element_by_xpath('//span[@class="subtitle"]').text.replace(" profils", "")
     except NoSuchElementException:
-        print("[Erreur] NoSuchElementException --> subtitle")
-        pass
+        stop(driver, 1)
+        return
+
+    driver.find_element_by_xpath(
+        '/html/body/main/div[2]/form/div[3]/div[1]/div/div[2]/div/div[2]/div[51]/p/button').click()
 
     # Accès a l'interface avancé de vision des CV
     try:
         driver.find_element_by_xpath('//button[@class="lienclic-profil text-entreprise btn-reset"]').click()
     except NoSuchElementException:
-        print("[Erreur] NoSuchElementException --> lienclic-profil text-entreprise btn-reset")
-        pass
+        stop(driver, 1)
+        return
 
     # Permet le chargement du CV
     driver.implicitly_wait(1)
@@ -161,14 +185,14 @@ def main():
     try:
         driver.find_element_by_xpath('//span[@class="text-entreprise"]').click()
     except NoSuchElementException:
-        print("[Erreur] NoSuchElementException --> text-entreprise")
-        pass
+        stop(driver, 1)
+        return
 
     lst_tmp_xp_and_form = []
     lst_tmp_comp = []
 
     # Boucle de parcours de tout les CV disponible a scrapper sur pôle emploi
-    for i in range(9):
+    for i in range(int(nb_profil) - 1):
         tmp_xp_and_form = []
         tmp_comp = 0
 
@@ -198,15 +222,15 @@ def main():
         try:
             driver.find_element_by_xpath('//span[@class="icon-chevron-right"]').click()
         except NoSuchElementException:
-            print("[Erreur] StaleElementReferenceException --> icon-chevron-right")
-            break
+            stop(driver, 1)
+            return
 
         # Ajout d'une personne dans un groupe de personne
         lst_tmp_xp_and_form.append([x for x in tmp_xp_and_form[1:] if x != ['']])
         lst_tmp_comp.append(tmp_comp)
         print(f"[+] Profil n°{i} atteint")
 
-# Envoie du groupe de personne pour récupérer seulement les informations nécessaire dans un dictionnaire
+    # Envoie du groupe de personne pour récupérer seulement les informations nécessaire dans un dictionnaire
     dico_xp_form = create_dic_xp_form(lst_tmp_xp_and_form)
     dico_comp = create_dic_comp(lst_tmp_comp)
 
@@ -219,10 +243,10 @@ def main():
     with open('pole_emploi.json', 'w') as file:
         file.write(json.dumps(dico, indent=4, ensure_ascii=False))
 
-    print("[+] Data !")
-    driver.quit()
+    stop(driver, 0)
 
 
-main()
+while True:
+    main()
 
-#%%
+# %%
