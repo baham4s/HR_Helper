@@ -13,12 +13,13 @@
   <div class="personne">
 
       <div class="haut">
-        <button pButton pRipple type="button" label="{{titre}}" class="p-button-outlined p-button-info"(click)="ouverture_Info()"></button>
+        <button pButton pRipple type="button" label="{{titreProfil}}" class="p-button-outlined p-button-info"(click)="ouverture_Info()"></button>
 
       </div>
     <div class="texte">
-      <!-- {{data}} -->
-      Formations : {{titre}} <br> {{niveau}} <br> {{duree}} <br>
+      Formations : <br> {{dateFormation}} - {{titreFormation}} - {{niveau}} <br> 
+      <!-- Disponibilite : -->  <br>  {{dispo}} <br>
+      <!--Date de mis en ligne : -->  <br> {{dateMAJ}}
     </div>
   </div>
 
