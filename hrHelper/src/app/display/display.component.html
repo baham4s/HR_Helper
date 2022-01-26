@@ -1,4 +1,3 @@
-
 <div class="toolbar" role="banner">
   <img
     width="40"
@@ -7,8 +6,8 @@
   />
   <span>HrHelper</span>
 </div>
-<div class="content" >
 
+<div class="content" onload=newProfil(); id="listeProfils" >
 
   <div class="personne">
 
@@ -17,9 +16,10 @@
 
       </div>
     <div class="texte">
-      Formations : <br> {{dateFormation}} - {{titreFormation}} - {{niveau}} <br> 
-      <!-- Disponibilite : -->  <br>  {{dispo}} <br>
+      <p>Formations : <br> {{dateFormation}} - {{titreFormation}} - {{niveau}}
+      <!-- Disponibilite : -->  <br>  {{dispo}}
       <!--Date de mis en ligne : -->  <br> {{dateMAJ}}
+      </p>
     </div>
   </div>
 
