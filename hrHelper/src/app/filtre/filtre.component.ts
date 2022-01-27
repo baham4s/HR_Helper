@@ -1,4 +1,5 @@
 import { Component, OnInit,EventEmitter, Output } from '@angular/core';
+import {DataService} from "../data.service";
 
 @Component({
   selector: 'app-filtre',
@@ -8,6 +9,8 @@ import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 
 
 export class FiltreComponent implements OnInit {
+  public registerobj={ email: 'oui', password: 'enfin'};
+
 
   Filtre:any=[];
   MotCle='';
@@ -46,7 +49,7 @@ export class FiltreComponent implements OnInit {
     this.notify.emit(this.Filtre);
   }
 
-  constructor() {
+  constructor(private dataService: DataService) {
     this.langue = [
       {name: 'Français', code: 'FR'},
       {name: 'Espagnol', code: 'ES'},
@@ -67,5 +70,8 @@ export class FiltreComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
+  sendData(){
+    console.log(this.registerobj);
+    this.dataService.registerUser(this.registerobj)
+  }
 }

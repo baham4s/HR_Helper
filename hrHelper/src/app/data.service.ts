@@ -10,7 +10,7 @@ export class DataService {
    * Angular server by default serves on localhost:4200 (PORT 4200) and suppose
    * if your backend server is working on different port or domain, then the CORS
    * issue will inevitably occur.
-   */ 
+   */
 
 
 
@@ -22,4 +22,15 @@ export class DataService {
   public sendGetRequest(){
     return this.httpClient.get(this.REST_API_SERVER);
   }
+
+
+  registerUser(registerobj:any){
+    console.log(registerobj)
+    return this.httpClient.post('http://localhost:3001/register',registerobj).subscribe((res =>{
+      console.log("res");
+      console.log(res);
+    }));
+
+  }
+
 }
