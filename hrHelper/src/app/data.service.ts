@@ -12,8 +12,6 @@ export class DataService {
    * issue will inevitably occur.
    */ 
 
-
-
   //private REST_API_SERVER = "/api/v1/profile";
   private REST_API_SERVER = "http://localhost:3001/api/v1/profile";
 
