@@ -10,6 +10,7 @@ router.get('', function(req, res) {
 	});
 });
 
+
 // Recherche par id
 router.get('/:id', function(req, res) {
 	const profileId = req.params.id;
@@ -20,6 +21,9 @@ router.get('/:id', function(req, res) {
         res.json(foundProfile);
 	});
 });
+
+
+
 // exemple :
 //  http://localhost:3001/api/v1/profile/61e426adb54bbeaed1eb37a7
 
