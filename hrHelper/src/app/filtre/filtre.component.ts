@@ -11,7 +11,6 @@ import {DataService} from "../data.service";
 
 
 export class FiltreComponent implements OnInit {
-  public registerobj={ email: 'oui', password: 'enfin', etude: "+4"};
 
 
   Filtre:any=[];
@@ -24,6 +23,7 @@ export class FiltreComponent implements OnInit {
   selectedEtude: any=[];
   etude: any[]=[];
 
+  public registerobj={ Permis: this.checked };
 
   @Output() notify: EventEmitter<string>=new EventEmitter<string>();
 
@@ -43,6 +43,7 @@ export class FiltreComponent implements OnInit {
     console.log("permis = "+this.checked);
     console.log("filtre total = "+this.Filtre);
   // ICI LES INFOS SONT PRET A ETRE ENVOYER DANS LE COMPOSANS DISPLAY POUR FILTRER
+
   }
 
 
@@ -73,6 +74,9 @@ export class FiltreComponent implements OnInit {
 
   ngOnInit(): void {}
   sendData(){
+    // mise a jour des donner avant envoie
+ this.registerobj={ Permis: this.checked };
+
     console.log(this.registerobj);
     this.dataService.registerUser(this.registerobj)
   }
