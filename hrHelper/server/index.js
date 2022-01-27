@@ -32,24 +32,6 @@ app.get('/users', function(req, res){
     res.json({"succes":true});
 });
 
-
-
-
-
-//app.post('/register', (req, res, next) => {
-  //delete req.body._id;
-  //console.log(req);
-  //const thing = new Thing({
-   // ...req.body
-  //});
-  //thing.save()
-   // .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
-  //  .catch(error => res.status(400).json({ error }));
-//});
-
-
-
-
 app.use('/api/v1/profile', profileRoutes);
 app.use('/register', stuffRoute);
 

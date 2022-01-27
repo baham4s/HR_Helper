@@ -8,8 +8,10 @@ import {DataService} from "../data.service";
 })
 
 
+
+
 export class FiltreComponent implements OnInit {
-  public registerobj={ email: 'oui', password: 'enfin'};
+  public registerobj={ email: 'oui', password: 'enfin', etude: "+4"};
 
 
   Filtre:any=[];
