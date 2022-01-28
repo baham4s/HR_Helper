@@ -14,7 +14,6 @@ export class DataService {
 
   //private REST_API_SERVER = "/api/v1/profile";
   private REST_API_SERVER = "http://localhost:3001/api/v1/profile";
-  public test={};
   constructor(private httpClient: HttpClient) { }
 
   public sendGetRequest(){
@@ -22,13 +21,14 @@ export class DataService {
   }
 
 
-  public registerUser(registerobj:object)  {
+  public registerUser(registerobj:any)  {
     console.log(registerobj)
-     return this.httpClient.post('http://localhost:3001/register',registerobj).subscribe(res =>{
-       this.test="1";
+     return this.httpClient.post('http://localhost:3001/register',registerobj, {observe:'response'}).subscribe(res =>{
       console.log("res");
       console.log(res);
     });
   }
+
+
 
 }
