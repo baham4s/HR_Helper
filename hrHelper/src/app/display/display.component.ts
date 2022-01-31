@@ -48,10 +48,20 @@ export class DisplayComponent implements OnInit {
     if(this.ouvertInfo=="non"){
       // @ts-ignore
       document.getElementById('menuInfo').style.display='block';
+      // @ts-ignore
+      document.getElementById('menuFiltre').style.display='none';
+  // @ts-ignore
+      document.getElementById('boutonFiltre').style.display='none';
+
       this.ouvertInfo="oui";
     }else{
       // @ts-ignore
       document.getElementById('menuInfo').style.display='none';
+      // @ts-ignore
+      document.getElementById('menuFiltre').style.display='block';
+      // @ts-ignore
+      document.getElementById('boutonFiltre').style.display='block';
+
       this.ouvertInfo="non";
     }
     console.log(this.data);
@@ -78,7 +88,7 @@ export class DisplayComponent implements OnInit {
         // @ts-ignore
       this.dateFormation = this.formation[i]["duree"];
     }
-   
+
     //DATE MIS A JOUR
       // @ts-ignore
     this.dateMAJ = this.data[idPers]["DateMiseEnLigne"];

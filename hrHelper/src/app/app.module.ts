@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ButtonModule} from 'primeng/button';
 import {RippleModule} from "primeng/ripple";
-import { BarreDeRechercheComponent } from './barre-de-recherche/barre-de-recherche.component';
 import { DisplayComponent } from './display/display.component';
 import { FiltreComponent } from './filtre/filtre.component';
 import {InputTextModule} from 'primeng/inputtext';
@@ -24,7 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    BarreDeRechercheComponent,
+
     DisplayComponent,
     FiltreComponent,
     InformationPersonneComponent,

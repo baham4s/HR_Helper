@@ -23,8 +23,6 @@ export class FiltreComponent implements OnInit {
   dispoPlusTard="";
   selectedEtude: any=[];
   etude: any[]=[];
-  langues=''
-  i=0;
 
   @Output() notify: EventEmitter<string>=new EventEmitter<string>();
 
