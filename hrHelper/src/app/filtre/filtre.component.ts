@@ -14,7 +14,8 @@ export class FiltreComponent implements OnInit {
 
 
   Filtre:any=[];
-  MotCle='';
+
+  motCle='';
   checked: boolean=false;
   selectedLangue: any=[];
   langue: any[]=[];
@@ -22,28 +23,40 @@ export class FiltreComponent implements OnInit {
   dispoPlusTard="";
   selectedEtude: any=[];
   etude: any[]=[];
-
-  public registerobj={ Permis: this.checked };
+  langues=''
+  i=0;
 
   @Output() notify: EventEmitter<string>=new EventEmitter<string>();
 
+  public registerobj={
+    Permis: false,
+    dispoImmedia: "",
+    dispoPlusTard: "",
+    selectedLangue: "",
+    selectedEtude:"",
+    motCle:""
+  };
 
   ajouterFiltre(element:string){
-    this.Filtre.push(element);
+    this.motCle=this.motCle+element;
     this.envoyerDonnées();
 
 
   }
 
   valider_filtre(){
-    console.log("dispoImmedia = "+this.dispoImmedia);
-    console.log("dispoPlusTard = "+this.dispoPlusTard);
-    console.log(this.etude);
-    console.log(this.langue);
-    console.log("permis = "+this.checked);
-    console.log("filtre total = "+this.Filtre);
-  // ICI LES INFOS SONT PRET A ETRE ENVOYER DANS LE COMPOSANS DISPLAY POUR FILTRER
 
+    this.registerobj={
+      Permis: this.checked,
+      dispoImmedia: this.dispoImmedia.toString(),
+      dispoPlusTard:this.dispoPlusTard.toString(),
+      selectedLangue:JSON.stringify(this.selectedLangue),
+      selectedEtude: JSON.stringify(this.selectedEtude),
+      motCle:this.motCle.toString()
+    };
+    this.motCle="";
+    console.log(this.Filtre)
+    this.sendData();
   }
 
 
@@ -74,10 +87,6 @@ export class FiltreComponent implements OnInit {
 
   ngOnInit(): void {}
   sendData(){
-    // mise a jour des donner avant envoie
- this.registerobj={ Permis: this.checked };
-
     console.log(this.registerobj);
-    this.dataService.registerUser(this.registerobj)
-  }
+    this.dataService.registerUser(this.registerobj)  }
 }
