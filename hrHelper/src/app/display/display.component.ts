@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 
 
+
 @Component({
   selector: 'app-display',
   templateUrl: './display.component.html',
@@ -66,6 +67,7 @@ export class DisplayComponent implements OnInit {
     }
     console.log(this.data);
   }
+
 
   recupInfo(idPers: number):void{
     //RECUPERATION INFO PERSONNE GENERAL
@@ -144,13 +146,7 @@ export class DisplayComponent implements OnInit {
     this.FiltreAuDessus=message;
   }
 
-  products = [];
-  totalAngularPackages: any;
-  private object: any;
-
-  constructor(private dataService: DataService) { }
-
-  ngOnInit(): void {
+  public GetServeur(){
     this.dataService.sendGetRequest().subscribe(data=>{
       console.log(data);
       this.data=data;
@@ -162,6 +158,18 @@ export class DisplayComponent implements OnInit {
         this.newDivProfil();
       }
     })
+  }
+
+
+
+  products = [];
+  totalAngularPackages: any;
+  private object: any;
+
+  constructor(private dataService: DataService) { }
+
+  ngOnInit(): void {
+  this.GetServeur();
   }
 
 }

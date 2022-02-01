@@ -1,5 +1,6 @@
 import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 import {DataService} from "../data.service";
+import { DisplayComponent } from '../display/display.component';
 
 @Component({
   selector: 'app-filtre',
@@ -38,8 +39,6 @@ export class FiltreComponent implements OnInit {
   ajouterFiltre(element:string){
     this.motCle=this.motCle+element;
     this.envoyerDonnées();
-
-
   }
 
   valider_filtre(){
@@ -55,6 +54,7 @@ export class FiltreComponent implements OnInit {
     this.motCle="";
     console.log(this.Filtre)
     this.sendData();
+    this.callMe();
   }
 
 
@@ -63,7 +63,7 @@ export class FiltreComponent implements OnInit {
     this.notify.emit(this.Filtre);
   }
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService,private comp: DisplayComponent) {
     this.langue = [
       {name: 'Français', code: 'FR'},
       {name: 'Espagnol', code: 'ES'},
@@ -82,6 +82,8 @@ export class FiltreComponent implements OnInit {
       {name: 'Autres'},
     ];
   }
+
+  public callMe(): void { this.comp.GetServeur(); }
 
   ngOnInit(): void {}
   sendData(){
