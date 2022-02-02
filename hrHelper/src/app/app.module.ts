@@ -17,6 +17,8 @@ import {CheckboxModule} from 'primeng/checkbox';
 import { InformationPersonneComponent } from './information-personne/information-personne.component';
 import {FormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BienvenueComponent } from './bienvenue/bienvenue.component';
+import { CaseComponent } from './case/case.component';
 
 
 
@@ -26,6 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DisplayComponent,
     FiltreComponent,
     InformationPersonneComponent,
+    BienvenueComponent,
+    CaseComponent,
 
   ],
   imports: [

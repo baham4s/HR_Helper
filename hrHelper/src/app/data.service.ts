@@ -16,7 +16,7 @@ export class DataService {
   private REST_API_SERVER = "http://localhost:3001/api/v1/profile";
   constructor(private httpClient: HttpClient) { }
 
-  public sendGetRequest(){
+  public sendGetRequest()  {
     return this.httpClient.get(this.REST_API_SERVER);
   }
 

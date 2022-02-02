@@ -7,28 +7,17 @@
   <span>HrHelper</span>
 </div>
 
-<div class="content" onload=newProfil(); id="listeProfils" >
-
-  <div class="personne">
-
-      <div class="haut">
-        <button pButton pRipple type="button" label="{{titreProfil}}" class="p-button-outlined p-button-info"(click)="ouverture_Info()"></button>
-
-      </div>
-    <div class="texte">
-      <p>Formations : <br> {{dateFormation}} - {{titreFormation}} - {{niveau}}
-      <!-- Disponibilite : -->  <br>  {{dispo}}
-      <!--Date de mis en ligne : -->  <br> {{dateMAJ}}
-      </p>
-    </div>
-  </div>
+<div class="content" id="listeProfils" >
+  <ul>
+    <li *ngFor="let person of InfoBrute">
+      <app-case [personne]="person" ></app-case>
+    </li>
+  </ul>
 
 
 
 
-  <div id="menuInfo">
-    <app-information-personne [Infos]="infoPersonne" ></app-information-personne>
-  </div>
+
 
   <div class='slides'>
     <div id="menuFiltre">

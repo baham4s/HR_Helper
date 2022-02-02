@@ -20,13 +20,12 @@ export class InformationPersonneComponent implements OnInit {
   experienceTitre="";
   formationSupp="";
 
+  constructor() {
 
+  }
 
-  // @ts-ignore
-
-
-  afficher(){
-    // @ts-ignore
+  ngOnInit(): void {
+    console.log(this.Infos)
     // @ts-ignore
     this.dateDeMiseEnLigne=(this.Infos)["DateMiseEnLigne"];
     // @ts-ignore
@@ -40,14 +39,14 @@ export class InformationPersonneComponent implements OnInit {
     // @ts-ignore
     for(var i in this.experience){
       // @ts-ignore
-      console.log(this.experienceTitre+=this.experience[i]["titre"]+this.experience[i]["duree"])
+      this.experienceTitre+=this.experience[i]["titre"]+this.experience[i]["duree"]
     }
     // @ts-ignore
     this.formation=(this.Infos)["formation"];
     // @ts-ignore
     for(var i in this.formation){
       // @ts-ignore
-      console.log(this.formationSupp+=this.formation[i]["titre"]+this.formation[i]["niveau"]+this.formation[i]["duree"])
+      this.formationSupp+=this.formation[i]["titre"]+this.formation[i]["niveau"]+this.formation[i]["duree"]
     }
 
     // @ts-ignore
@@ -58,19 +57,6 @@ export class InformationPersonneComponent implements OnInit {
     this.langue=(this.Infos)["langues"];
     // @ts-ignore
     this.permis=(this.Infos)["permis"];
-    // @ts-ignore
-
-  }
-  constructor() {
-    console.log(this.Infos);
-    // @ts-ignore
-  }
-
-  ngOnInit(): void {
-    // @ts-ignore
-    this.afficher()
-
-    console.log(this.Infos);
 
   }
 

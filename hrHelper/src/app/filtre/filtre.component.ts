@@ -54,7 +54,7 @@ export class FiltreComponent implements OnInit {
     this.motCle="";
     console.log(this.Filtre)
     this.sendData();
-    this.callMe();
+    //this.callMe();
   }
 
 
@@ -83,7 +83,7 @@ export class FiltreComponent implements OnInit {
     ];
   }
 
-  public callMe(): void { this.comp.GetServeur(); }
+  //public callMe(): void { this.comp.GetServeur(); }
 
   ngOnInit(): void {}
   sendData(){

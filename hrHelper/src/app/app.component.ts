@@ -6,12 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'hrHelper';
 
-  presentation(){
-    // @ts-ignore
-    document.getElementById('presentation').style.display='none';
-    // @ts-ignore
-    document.getElementById('main').style.display='block';
-  }
 }
