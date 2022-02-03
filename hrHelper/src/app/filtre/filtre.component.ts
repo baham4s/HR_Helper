@@ -60,7 +60,7 @@ export class FiltreComponent implements OnInit {
     };
     this.motCle="";
     console.log(this.Filtre)
-    this.sendData();
+    this.updateFiltre();
     this.callMe();
   }
 
@@ -97,7 +97,7 @@ export class FiltreComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.getFiltre().subscribe(data=>{
       console.log(data);
-      this.filtreServeur=data;
+      this.filtreServeur=JSON.stringify(data);
 
     })
   }
@@ -105,11 +105,13 @@ export class FiltreComponent implements OnInit {
     this.dataService.getFiltre().subscribe(data=>{
       console.log("les filtres")
       console.log(data);
-      this.filtreServeur=data;
-
+      this.filtreServeur=JSON.stringify(data)
     })
   }
 
+  updateFiltre(){
+    this.dataService.updateFiltre(this.registerobj);
+  }
 
   sendData(){
    // console.log(this.registerobj);

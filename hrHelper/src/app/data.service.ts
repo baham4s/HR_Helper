@@ -33,5 +33,12 @@ export class DataService {
     return this.httpClient.get('http://localhost:3001/register');
   }
 
+  public updateFiltre(registeribj:any){
+    return this.httpClient.put('http://localhost:3001/register',registeribj, {observe:'response'}).subscribe(res =>{
+      console.log("res");
+      console.log(res);
+    });
+    }
+
 
 }
