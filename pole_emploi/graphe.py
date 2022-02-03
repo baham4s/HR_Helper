@@ -58,7 +58,6 @@ for personne in data:
 
 # Méthode qui renvoi un indice de date de mise en ligne
 # -> (date_mise_en_ligne/date_actuel), les indices sont stocker dans un tableau
-indiceDate = []
 def dateMiseEnLigne(date):
     jour = date[22:24]  # Recupération du jours dans la chaine de caractère
     mois = date[25:27]  # Récupération du mois dans la chaine de caractère
@@ -74,13 +73,11 @@ def dateMiseEnLigne(date):
     unixtimeProfil = float(str(time.mktime(d.timetuple()))[2:])
     unixtimeToday =  float(str(time.mktime(z.timetuple()))[2:])
 
-    # Création de l'indice et ajout dans le tableau
-    # indiceDate.append( int((unixtimeProfil/unixtimeToday)*100) )
+    # Création de l'indice 
     return ( int((unixtimeProfil/unixtimeToday)*100) )
 
 # Méthode qui renvoi un indice du niveau de formation d'un profil
 # -> (niveau_étude_max/5)*100, les indices sont stocker dans un tableau
-indiceFormation = []
 def niveauFormation(formation):
     niveauMax = "0"
     tabTemp = []
@@ -94,42 +91,26 @@ def niveauFormation(formation):
         else:   # Si le profil a seulement le bac
             tabTemp.append("0")
 
-    # indiceFormation.append( int((int(max(tabTemp))/5)*100))  # Calcul de l'indice et ajout dans le tableau
     return ( int((int(max(tabTemp))/5)*100))
-
-# Calcul du nombre moyen d'experience de chaque profil dans la BDD
-# def moyExperienceBDD(dico):
-#    somme = 0
-#    for i in range(len(dico)):
-#        nbExp = len(dico.get("experience")[i])
-#        somme = somme + int(nbExp)
-#    return ( int(somme/len(dico)))
 
 # Méthode qui renvoi un indice sur le nombre de formation du profil
 # -> sous forme d'intervalles : [0] = 0%, [1,3] = 25%, [4,6] = 50%, [7,9] = 75% , [10,+] = 100% | les indices sont stocker dans un tableau
-indiceExperience = []
 def nombreExperience(exp):
     nbExp = len(exp)
     if(nbExp == 0):
-        #indiceExperience.append(0)
         return 0
     elif(nbExp >= 1 and nbExp <=3):
-        #indiceExperience.append(25)
         return 25
     elif(nbExp >= 4 and nbExp <= 6):
-        #indiceExperience.append(50)
         return 50
     elif(nbExp >= 7 and nbExp <= 9):
-        #indiceExperience.append(75)
         return 75
     else:
-        #indiceExperience.append(100)
         return 100
 
 # Méthode qui renvoi un indice sur le niveau en langues du profil
 # -> (niveau_langue_total/nb_langue), les indices sont stocker dans un tableau
 # Le niveau en langue est le suivant : 33% si débutant / 66% si intermediaire / 100% si courant
-indiceLangue = []
 def niveauLangues(langue):
     niveau = 0
     for i in range(len(langue)):
@@ -139,45 +120,35 @@ def niveauLangues(langue):
             niveau = niveau + 66
         else :
             niveau = niveau + 33
-    #indiceLangue.append( (int)(niveau/len(langue)) )
     return ( (int)(niveau/len(langue)) )
 
 # Méthode qui renvoi un indice de disponibilité du profil
 # -> 100 s'il est disponible 0 sinon, les indices sont stocker dans un tableau
-indiceDispo = []
 def disponibilite(dispo):
     if "immÃ©diate" in dispo:
-        #indiceDispo.append(100)
         return 100
     else:
-        #indiceDispo.append(0)
         return 0
 
-A = np.zeros((len(dico),5))
-A[0][2] = 8 # [ligne][colonne]
+def calculIndiceProfil(dico):
 
-# Parcours du dico et application des méthodes de création d'indice sur chaque key
-print("Nombre de profils : ", len(dico))
-for i in range(len(dico)):
-    A[i][0] = dateMiseEnLigne(dico.get("DateMiseEnLigne")[i])
-    A[i][1] = niveauFormation(dico.get("formation")[i])
-    A[i][2] = nombreExperience(dico.get("experience")[i])
-    A[i][3] = disponibilite(dico.get("dispo")[i])
-    A[i][4] = niveauLangues(dico.get("langues")[i])
+    A = np.zeros((len(dico),5))
 
-    # dateMiseEnLigne(dico.get("DateMiseEnLigne")[i])
-    # niveauFormation(dico.get("formation")[i])
-    # nombreExperience(dico.get("experience")[i])
-    # disponibilite(dico.get("dispo")[i])
-    # niveauLangues(dico.get("langues")[i])
+    # Parcours du dico et application des méthodes de création d'indice sur chaque key
+    # print("Nombre de profils : ", len(dico))
 
-print(A)
+    for i in range(len(dico)):
+        A[i][0] = dateMiseEnLigne(dico.get("DateMiseEnLigne")[i])
+        A[i][1] = niveauFormation(dico.get("formation")[i])
+        A[i][2] = nombreExperience(dico.get("experience")[i])
+        A[i][3] = disponibilite(dico.get("dispo")[i])
+        A[i][4] = niveauLangues(dico.get("langues")[i])
 
-#print("\nIndice Date :\t", indiceDate,"\n")
-#print("Indice Forma :\t", indiceFormation,"\n")
-#print("Indice Expe :\t", indiceExperience,"\n")
-#print("Indice Dispo :\t", indiceDispo,"\n")
-#print("Indice Langue :\t", indiceLangue,"\n")
+    return A
+
+matriceIndice = np.zeros((len(dico),5))
+matriceIndice = calculIndiceProfil(dico)
+print(matriceIndice)
 
 
 #%%
