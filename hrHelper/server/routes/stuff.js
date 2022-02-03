@@ -18,4 +18,25 @@ thing.save()
 });
 
 
+
+// router.get('', (req, res, next) => {
+//   filtre.findOne({ _id: req.params.id })
+//     .then(thing => res.status(200).json(thing))
+//     .catch(error => res.status(404).json({ error }));
+// });
+//
+
+// Recupération de toutes la BDD
+router.get('', function(req, res) {
+  filtre.find({}, function(err, foundFiltre) {
+    res.json(foundFiltre);
+  });
+});
+
+
+
+
+
+
+
 module.exports=router;

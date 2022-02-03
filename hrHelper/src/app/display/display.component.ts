@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
+import { BienvenueComponent } from '../bienvenue/bienvenue.component';
 
 
 
@@ -10,18 +11,25 @@ import { DataService } from '../data.service';
 })
 export class DisplayComponent implements OnInit {
   @Input() InfoBrute = [];
-test(){
-  console.log(this.InfoBrute)
-  console.log(this.InfoBrute[1])
-}
-
-
-
   Filtre:string="";
   ouvertFIltre:string="non";
   dateFormation: Object = "";
   dateMAJ: Object = "";
   data:Object= "";
+
+  ouvertureChargement :  boolean  =  false
+  ouvertureCase :  boolean  =  true
+
+  changementmode(){
+    if(this.ouvertureCase==true){
+      this.ouvertureChargement  =  true
+     this. ouvertureCase   =  false
+    }else {
+     this. ouvertureChargement =  false
+     this. ouvertureCase =  true
+    }
+  }
+
 
 
   onNotifyClickedFiltre(message:string):void{
@@ -44,6 +52,12 @@ test(){
 
 
 
+  public GetServeur(): void {
+    this.comp.GetServeur();
+
+    this.changementmode();
+    setTimeout(() => {  this.changementmode(); }, 2000);
+  }
 
 
 
@@ -51,7 +65,7 @@ test(){
   totalAngularPackages: any;
   private object: any;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService,private comp: BienvenueComponent) { }
 
   ngOnInit(): void {
   }

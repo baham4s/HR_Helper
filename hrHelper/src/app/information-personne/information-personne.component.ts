@@ -20,6 +20,36 @@ export class InformationPersonneComponent implements OnInit {
   experienceTitre="";
   formationSupp="";
 
+
+
+  // graphique
+  dataGrahp={
+    labels: ['jan','fev','mars','avril','apr','may','jun'],
+    datasets: [
+      {
+        label: 'My First dataset',
+        backgroundColor: 'rgba(13,191,245,0.2)',
+        borderColor: 'rgba(179,181,198,1)',
+        pointBackgroundColor: 'rgba(179,181,198,1)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgba(179,181,198,1)',
+        data: [65, 59, 90, 81, 56, 55, 10]
+      },
+      {
+        label: 'My First dataset',
+        backgroundColor: 'rgba(13,191,245,0.2)',
+        borderColor: 'rgba(179,181,198,1)',
+        pointBackgroundColor: 'rgba(179,181,198,1)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgba(179,181,198,1)',
+        data: [10, 59, 80, 81, 56, 90, 40]
+      },
+
+    ]
+  }
+
   constructor() {
 
   }

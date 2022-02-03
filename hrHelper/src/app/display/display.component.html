@@ -7,12 +7,26 @@
   <span>HrHelper</span>
 </div>
 
-<div class="content" id="listeProfils" >
-  <ul>
-    <li *ngFor="let person of InfoBrute">
-      <app-case [personne]="person" ></app-case>
-    </li>
-  </ul>
+
+<div *ngIf="ouvertureChargement">
+  <div class="spinner">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+</div >
+
+<div *ngIf="ouvertureCase">
+  <div class="content" id="listeProfils" >
+    <ul>
+      <li *ngFor="let person of InfoBrute">
+        <app-case [personne]="person" ></app-case>
+
+      </li>
+    </ul>
+  </div>
+</div >
+
+
+
 
 
 
@@ -32,7 +46,6 @@
 
 
 
-</div>
 
 
 

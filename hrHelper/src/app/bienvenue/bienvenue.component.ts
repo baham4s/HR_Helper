@@ -10,10 +10,14 @@ import {DataService} from "../data.service";
 export class BienvenueComponent implements OnInit {
   data: any = [];
 
+
+  chartOptions: any;
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.GetServeur();
+
+
 
   }
   title = 'hrHelper';

@@ -11,6 +11,11 @@
   </div>
 </div>
 
-<div id="menuInfo">
-  <app-information-personne [Infos]="personne" ></app-information-personne>
-</div>
+
+<div *ngIf="ouvertureInfo">
+  <div class="affichage">
+    <app-information-personne [Infos]="personne" ></app-information-personne>
+  </div>
+</div >
+
+

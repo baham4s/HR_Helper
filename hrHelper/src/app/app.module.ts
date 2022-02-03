@@ -19,6 +19,8 @@ import {FormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BienvenueComponent } from './bienvenue/bienvenue.component';
 import { CaseComponent } from './case/case.component';
+import {ChartModule} from "primeng/chart";
+import {ProgressSpinnerModule} from "primeng/progressspinner";
 
 
 
@@ -45,7 +47,9 @@ import { CaseComponent } from './case/case.component';
     DropdownModule,
     CheckboxModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ChartModule,
+    ProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

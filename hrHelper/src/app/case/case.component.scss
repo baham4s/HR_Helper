@@ -1,3 +1,4 @@
+
 #menuInfo{
   display: none;
   position: fixed;
@@ -10,4 +11,11 @@
   border-color:#1976d2;
   background: #87CEEB	;
 
+}
+
+.contour{
+  border-width:1px;
+  border-style:dotted;
+  border-color:black;
+  height: 150px;
 }

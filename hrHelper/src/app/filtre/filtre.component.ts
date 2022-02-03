@@ -24,7 +24,7 @@ export class FiltreComponent implements OnInit {
   dispoPlusTard="";
   selectedEtude: any=[];
   etude: any[]=[];
-
+  filtreServeur: any;
   @Output() notify: EventEmitter<string>=new EventEmitter<string>();
 
   public registerobj={
@@ -42,6 +42,13 @@ export class FiltreComponent implements OnInit {
   }
 
   valider_filtre(){
+    console.log("filtre venant de la BDD")
+    this.getFiltre()
+    console.log(this.filtreServeur)
+    console.log("fin venant de la BDD")
+
+
+
 
     this.registerobj={
       Permis: this.checked,
@@ -54,7 +61,7 @@ export class FiltreComponent implements OnInit {
     this.motCle="";
     console.log(this.Filtre)
     this.sendData();
-    //this.callMe();
+    this.callMe();
   }
 
 
@@ -83,10 +90,28 @@ export class FiltreComponent implements OnInit {
     ];
   }
 
-  //public callMe(): void { this.comp.GetServeur(); }
+  public callMe(): void {
+    this.comp.GetServeur();
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dataService.getFiltre().subscribe(data=>{
+      console.log(data);
+      this.filtreServeur=data;
+
+    })
+  }
+  getFiltre(){
+    this.dataService.getFiltre().subscribe(data=>{
+      console.log("les filtres")
+      console.log(data);
+      this.filtreServeur=data;
+
+    })
+  }
+
+
   sendData(){
-    console.log(this.registerobj);
+   // console.log(this.registerobj);
     this.dataService.registerUser(this.registerobj)  }
 }

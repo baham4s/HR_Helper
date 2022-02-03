@@ -1,52 +1,53 @@
-<div class="generale" >
-  <div class="DispLigne">
-    <div class="gauche">
-      {{dateDeMiseEnLigne}}
-    </div>
-    <div class="center">
-      {{permis}}
-    </div>
-    <div class="droite">
-      {{dispo}}
-    </div>
-  </div>
-  <br>
-  <div class="titre">
-    {{titre}}
-  </div>
-
-  <div class="exForGra">
-    <div class="exFor">
-      <div class="ex">
-        {{experienceTitre}}
+  <div class="generale" >
+    <div class="DispLigne">
+      <div class="gauche">
+        {{dateDeMiseEnLigne}}
       </div>
-      <div class="for">
-        {{formationSupp}}
+      <div class="center">
+        {{permis}}
+      </div>
+      <div class="droite">
+        {{dispo}}
       </div>
     </div>
-    <div class="graphe">
-
+    <br>
+    <div class="titre">
+      {{titre}}
     </div>
+
+    <div class="exForGra">
+      <div class="exFor">
+        <div class="ex">
+          {{experienceTitre}}
+        </div>
+        <div class="for">
+          {{formationSupp}}
+        </div>
+      </div>
+      <div class="graphe">
+        <p-chart type="radar" [data]="dataGrahp" [style]="{'width': '10%'}"></p-chart>
+
+      </div>
+    </div>
+
+    <div class="comLang">
+      <div class="com">
+        {{competence}}
+      </div>
+      <div class="lang">
+        {{langue}}
+      </div>
+    </div>
+
+    <div class="sePoi">
+      <div class="savoir">
+        {{savoirEtre}}
+      </div>
+      <div class="fort">
+        {{ptsFort}}
+      </div>
+    </div>
+
+
   </div>
-
-  <div class="comLang">
-    <div class="com">
-      {{competence}}
-    </div>
-    <div class="lang">
-      {{langue}}
-    </div>
-  </div>
-
-  <div class="sePoi">
-    <div class="savoir">
-      {{savoirEtre}}
-    </div>
-    <div class="fort">
-      {{ptsFort}}
-    </div>
-  </div>
-
-
-</div>
 

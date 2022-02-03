@@ -29,6 +29,9 @@ export class DataService {
     });
   }
 
+  public getFiltre()  {
+    return this.httpClient.get('http://localhost:3001/register');
+  }
 
 
 }

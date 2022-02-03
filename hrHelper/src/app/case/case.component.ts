@@ -13,24 +13,18 @@ export class CaseComponent implements OnInit {
   dateFormation: Object = "";
   niveau: Object = "";
   formation: Object = "";
-
+  idPersonne: String = "";
+  ouvertureInfo :  boolean  =  false
   @Input() personne = [];
 
-
-  ouvertInfo:string="non";
+ ouvertInfo:string="non";
 
   ouverture_Info() {
     if (this.ouvertInfo == "non") {
-      // @ts-ignore
-      document.getElementById('menuInfo').style.display = 'block';
-      // @ts-ignore
-
-
-      this.ouvertInfo = "oui";
+     this.ouvertureInfo=true
+      this.ouvertInfo = "oui"
     } else {
-      // @ts-ignore
-      document.getElementById('menuInfo').style.display = 'none';
-      // @ts-ignore
+      this.ouvertureInfo=false
       this.ouvertInfo = "non";
     }
   }
@@ -40,6 +34,9 @@ export class CaseComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // @ts-ignore
+    this.idPersonne=this.personne["_id"];
+
     // @ts-ignore
     this.titreProfil=this.personne["titre"];
     //FORMATION
