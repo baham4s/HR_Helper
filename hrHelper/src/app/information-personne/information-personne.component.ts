@@ -31,8 +31,7 @@ export class InformationPersonneComponent implements OnInit {
   savoirEtre="";
   langue="";
   permis="";
-  experienceTitre="";
-  formationSupp="";
+
 
 maj(Infos: any){
   this.dateDeMiseEnLigne=(Infos)["DateMiseEnLigne"];
