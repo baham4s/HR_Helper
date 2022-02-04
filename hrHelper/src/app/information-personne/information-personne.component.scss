@@ -3,8 +3,83 @@
   border-style:dotted;
   border-color:black;
 
-  margin-top: 0px;
+  margin-top: 5px;
   float: right;
   height: 80%;
   width: 55%;
+}
+.L1{
+  margin-top: 10px;
+  width: 130%;
+}
+.L1e{
+  float: left; width: 31%;
+}
+.titre{
+  margin-top: 15px;
+  text-align: center;
+  background: black;
+  font-size: 18px;
+  color: aliceblue;
+}
+
+.L3{
+  margin-top: 10px;
+  width: 130%;
+}
+.experience{
+  float: left; width: 30%;
+
+}
+.graphique{
+  float: left; width: 45%;
+}
+.titreExperiance{
+  font-weight: bold;
+}
+.trait_dessus
+{
+  border-top: 1px solid #000;
+  width : 700px;
+}
+.titre_formation{
+  font-weight: bold;
+}
+.formation{
+
+}
+.L4{
+  margin-top: 10px;
+  width: 100%;
+}
+.competence{
+  float: left; width: 49%;
+}
+.titrecompetence{
+  font-weight: bold;
+}
+.langue{
+  float: left; width: 50%;
+}
+.titreLangue{
+  font-weight: bold;
+}
+
+
+
+.L5{
+  margin-top: 20px;
+  width: 100%;
+}
+.savoirEtre{
+  float: left; width: 49%;
+}
+.titresavoirEtre{
+  font-weight: bold;
+}
+.ptsFort{
+  float: left; width: 50%;
+}
+.titreptsFort{
+  font-weight: bold;
 }

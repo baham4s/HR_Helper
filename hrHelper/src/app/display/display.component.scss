@@ -19,7 +19,9 @@ h6 {
 p {
   margin: 0;
 }
-
+#infoPersonne{
+  display: none;
+}
 
 .toolbar {
   position: absolute;
@@ -63,7 +65,10 @@ p {
   border-color:#1976d2;
 }
 
+.parent{
+  position: relative;
 
+}
 
 
 .content{
@@ -74,13 +79,15 @@ p {
   display: inline;
 }
 .gauche{
-  width: 45%;
-  float: left;
+  position: absolute;
+
 }
 .droit{
   margin-top: 50px;
-  width: 55%;
+  width: 80%;
   float: right;
+  margin-left: 20%;
+
 }
 .personne{
   border-width:1px;

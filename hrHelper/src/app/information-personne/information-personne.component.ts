@@ -19,7 +19,8 @@ export class InformationPersonneComponent implements OnInit {
   Infos=this.childMessage;
   // @ts-ignore
   info=this.Infos
-
+  ngExperiance=[];
+  ngformationSupp=[];
   dateDeMiseEnLigne="";
   titre="";
   dispo="";
@@ -33,7 +34,6 @@ export class InformationPersonneComponent implements OnInit {
   experienceTitre="";
   formationSupp="";
 
-
 maj(Infos: any){
   this.dateDeMiseEnLigne=(Infos)["DateMiseEnLigne"];
   // @ts-ignore
@@ -44,30 +44,35 @@ maj(Infos: any){
   this.ptsFort=(Infos)["ptsForts"];
   // @ts-ignore
   this.experience=(Infos)["experience"];
-  // @ts-ignore
-  for(var i in this.experience){
-    if(this.experience["length"]!=0) {
+  this.ngExperiance=[];
 
+
+
+  if(this.experience["length"]==0){
       // @ts-ignore
-      this.experienceTitre += this.experience[i]["titre"] + this.experience[i]["duree"]
-    }else{
-      this.experienceTitre="Aucune Experience"
+    this.ngExperiance[0]="Aucune Experience"
+     }else {
+    // @ts-ignore
+    for (var i in this.experience) {
+      // @ts-ignore
+      this.ngExperiance[i] = this.experience[i]["titre"] + this.experience[i]["duree"]
+    }
+    }
+
+// @ts-ignore
+  this.formation=(Infos)["formation"];
+
+   this.ngformationSupp=[];
+  if(this.formation["length"]==0) {
+    // @ts-ignore
+    this.ngformationSupp[0] = "Aucune Formation"
+  }else{
+    // @ts-ignore
+    for(var i in this.formation){
+        // @ts-ignore
+        this.ngformationSupp[i] = this.formation[i]["titre"] + this.formation[i]["niveau"] + this.formation[i]["duree"]
     }
   }
-  // @ts-ignore
-  this.formation=(Infos)["formation"];
-  // @ts-ignore
-  for(var i in this.formation){
-    // @ts-ignore
-    if(this.formation["length"]!=0) {
-      // @ts-ignore
-      this.formationSupp += this.formation[i]["titre"] + this.formation[i]["niveau"] + this.formation[i]["duree"]
-
-    }else{
-        this.formationSupp ="Aucune Formation"
-      }
-  }
-
 
   // @ts-ignore
   this.competence=(Infos)["competence"];

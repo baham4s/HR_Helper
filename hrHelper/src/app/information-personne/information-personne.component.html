@@ -1,24 +1,86 @@
 <div class="generale">
-  {{dispo}}
-  {{titre}}
-  {{dateDeMiseEnLigne}}
-
-{{Infos}}
 
 
 
 
 
+  <div class="L1">
+    <div class="L1e">      {{dateDeMiseEnLigne}}
+    </div>
+    <div class="L1e">{{permis}}</div>
+    <div class="L1e">{{dispo}}</div>
+    <br style="clear: left;" />
+  </div>
+
+  <div class="titre">
+    {{titre}}
+  </div>
+
+  <div class="L3">
+    <div class="experience">
+      <div class="titreExperiance">
+        Experience :
+      </div>
+
+      <p *ngFor="let exp of ngExperiance">
+        {{exp}}
+    </div>
+    <div class="graphique">
+    <p-chart type="radar" [data]="dataGrahp" [style]="{'width': '1%'}"></p-chart>
+  </div>
+  </div>
+
+  <div class="trait_dessus"><hr></div>
+  <div class="formation">
+    <div class="titre_formation">
+      Formation :
+    </div>
+    <p *ngFor="let form of ngformationSupp">
+      {{form}}
+  </div>
+
+ <br> <div class="trait_dessus"></div>
+
+  <div class="L4">
+    <div class="competence">
+      <div class="titrecompetence">
+        Compétence :
+      </div>
+      {{competence}}
+    </div>
+    <div class="langue">
+      <div class="titreLangue">
+        Langue :
+      </div>
+      {{langue}}
+    </div>
+  </div>
 
 
-        {{permis}}
-          {{experienceTitre}}
-          {{formationSupp}}
-        <p-chart type="radar" [data]="dataGrahp" [style]="{'width': '10%'}"></p-chart>
-        {{competence}}
-        {{langue}}
-        {{savoirEtre}}
-        {{ptsFort}}
+  <div class="L5">
+    <div class="savoirEtre">
+      <div class="titresavoirEtre">
+        Savoir Etre :
+      </div>
+      {{savoirEtre}}
+    </div>
+    <div class="ptsFort">
+      <div class="titreptsFort">
+        pts Fort :
+      </div>
+      {{ptsFort}}
+    </div>
+  </div>
+
+
+<!--
+        -->
+<!--          -->
+<!--        -->
+<!--        -->
+<!--        {{langue}}-->
+<!--        {{savoirEtre}}-->
+<!--        {{ptsFort}}-->
 
 
 </div>

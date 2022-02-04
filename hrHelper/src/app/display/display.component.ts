@@ -13,13 +13,7 @@ export class DisplayComponent implements OnInit {
 
   message : any;
 
-  receiveMessage($event: any) {
-    this.message = $event
 
-    console.log(this.message)
-
-
-  }
 
   @Input() InfoBrute = [];
   Filtre:string="";
@@ -30,7 +24,21 @@ export class DisplayComponent implements OnInit {
 
   ouvertureChargement :  boolean  =  false
   ouvertureCase :  boolean  =  true
+  ouvertureInfo :  boolean  =  false
+  ouvertureFiltre:  boolean  =  true
 
+  receiveMessage($event: any) {
+    this.message = $event
+  if(this.ouvertureInfo==false){
+    this.ouvertureInfo=true;
+    this.ouvertureFiltre=false;
+
+  }else{
+    this.ouvertureInfo=false;
+    this.ouvertureFiltre=true;
+
+  }
+  }
 
   changementmode(){
     if(this.ouvertureCase==true){

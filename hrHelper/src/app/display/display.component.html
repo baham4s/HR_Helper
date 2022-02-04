@@ -14,17 +14,22 @@
   </div>
 </div >
 
-<div class="gauche">
-  <div *ngIf="ouvertureCase">
-    <div class="content" id="listeProfils" >
-        <p *ngFor="let person of InfoBrute">
-          <app-case [personne]="person"  (messageEvent)="receiveMessage($event)"></app-case>
-    </div>
-  </div >
-</div>
 
-<div class="droit">
-  <app-information-personne [childMessage]="message"></app-information-personne>
+<div class="parent">
+  <div *ngIf="ouvertureInfo">
+    <div class="gauche droit">
+      <app-information-personne [childMessage]="message"></app-information-personne>
+    </div>
+  </div>
+  <div class="gauche">
+    <div *ngIf="ouvertureCase">
+      <div class="content" id="listeProfils" >
+          <p *ngFor="let person of InfoBrute">
+            <app-case [personne]="person"  (messageEvent)="receiveMessage($event)"></app-case>
+      </div>
+    </div >
+  </div>
+
 </div>
 
 
@@ -36,8 +41,9 @@
     </div>
   </div>
   <div class="bouton_filtre">
-    <div id ="boutonFiltre">
-    <p-button label="Click" icon="p-button-icon pi pi-check" class="p-button-rounded p-button p-component p-button-icon-only"iconPos="center" (click)="ouverture_filtre()"></p-button>
+      <div *ngIf="ouvertureFiltre">
+
+      <p-button label="Click" icon="p-button-icon pi pi-check" class="p-button-rounded p-button p-component p-button-icon-only"iconPos="center" (click)="ouverture_filtre()"></p-button>
    </div>
   </div>
 
