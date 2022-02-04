@@ -6,7 +6,20 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./information-personne.component.scss']
 })
 export class InformationPersonneComponent implements OnInit {
-  @Input() Infos: Object = '';
+ // @Input() childMessage = []
+
+
+@Input() set childMessage(valeur: any) {
+  console.log(valeur["dispo"])
+  this.maj(valeur)
+  //this.Infos =valeur;
+}
+
+  // @ts-ignore
+  Infos=this.childMessage;
+  // @ts-ignore
+  info=this.Infos
+
   dateDeMiseEnLigne="";
   titre="";
   dispo="";
@@ -19,6 +32,53 @@ export class InformationPersonneComponent implements OnInit {
   permis="";
   experienceTitre="";
   formationSupp="";
+
+
+maj(Infos: any){
+  this.dateDeMiseEnLigne=(Infos)["DateMiseEnLigne"];
+  // @ts-ignore
+  this.titre=(Infos)["titre"];
+  // @ts-ignore
+  this.dispo=(Infos)["dispo"];
+  // @ts-ignore
+  this.ptsFort=(Infos)["ptsForts"];
+  // @ts-ignore
+  this.experience=(Infos)["experience"];
+  // @ts-ignore
+  for(var i in this.experience){
+    if(this.experience["length"]!=0) {
+
+      // @ts-ignore
+      this.experienceTitre += this.experience[i]["titre"] + this.experience[i]["duree"]
+    }else{
+      this.experienceTitre="Aucune Experience"
+    }
+  }
+  // @ts-ignore
+  this.formation=(Infos)["formation"];
+  // @ts-ignore
+  for(var i in this.formation){
+    // @ts-ignore
+    if(this.formation["length"]!=0) {
+      // @ts-ignore
+      this.formationSupp += this.formation[i]["titre"] + this.formation[i]["niveau"] + this.formation[i]["duree"]
+
+    }else{
+        this.formationSupp ="Aucune Formation"
+      }
+  }
+
+
+  // @ts-ignore
+  this.competence=(Infos)["competence"];
+  // @ts-ignore
+  this.savoirEtre=(Infos)["savoirEtre"];
+  // @ts-ignore
+  this.langue=(Infos)["langues"];
+  // @ts-ignore
+  this.permis=(Infos)["permis"];
+
+}
 
 
 
@@ -55,38 +115,9 @@ export class InformationPersonneComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.Infos)
-    // @ts-ignore
-    this.dateDeMiseEnLigne=(this.Infos)["DateMiseEnLigne"];
-    // @ts-ignore
-    this.titre=(this.Infos)["titre"];
-    // @ts-ignore
-    this.dispo=(this.Infos)["dispo"];
-    // @ts-ignore
-    this.ptsFort=(this.Infos)["ptsForts"];
-    // @ts-ignore
-    this.experience=(this.Infos)["experience"];
-    // @ts-ignore
-    for(var i in this.experience){
-      // @ts-ignore
-      this.experienceTitre+=this.experience[i]["titre"]+this.experience[i]["duree"]
-    }
-    // @ts-ignore
-    this.formation=(this.Infos)["formation"];
-    // @ts-ignore
-    for(var i in this.formation){
-      // @ts-ignore
-      this.formationSupp+=this.formation[i]["titre"]+this.formation[i]["niveau"]+this.formation[i]["duree"]
-    }
 
+    console.log(this.childMessage)
     // @ts-ignore
-    this.competence=(this.Infos)["competence"];
-    // @ts-ignore
-    this.savoirEtre=(this.Infos)["savoirEtre"];
-    // @ts-ignore
-    this.langue=(this.Infos)["langues"];
-    // @ts-ignore
-    this.permis=(this.Infos)["permis"];
 
   }
 

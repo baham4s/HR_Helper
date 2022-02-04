@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-case',
@@ -19,19 +19,29 @@ export class CaseComponent implements OnInit {
 
  ouvertInfo:string="non";
 
-  ouverture_Info() {
-    if (this.ouvertInfo == "non") {
-     this.ouvertureInfo=true
-      this.ouvertInfo = "oui"
-    } else {
-      this.ouvertureInfo=false
-      this.ouvertInfo = "non";
-    }
-  }
+
+  message: string = "Hello!"
+
+  @Output() messageEvent = new EventEmitter<any>();
+
 
 
 
   constructor() { }
+  ouverture_Info() {
+    this.messageEvent.emit(this.personne)
+
+    // if (this.ouvertInfo == "non") {
+    //  this.ouvertureInfo=true
+    //   this.ouvertInfo = "oui"
+    // } else {
+    //   this.ouvertureInfo=false
+    //   this.ouvertInfo = "non";
+    // }
+  }
+
+
+
 
   ngOnInit(): void {
     // @ts-ignore

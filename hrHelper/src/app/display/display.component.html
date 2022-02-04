@@ -14,21 +14,18 @@
   </div>
 </div >
 
-<div *ngIf="ouvertureCase">
-  <div class="content" id="listeProfils" >
-    <ul>
-      <li *ngFor="let person of InfoBrute">
-        <app-case [personne]="person" ></app-case>
+<div class="gauche">
+  <div *ngIf="ouvertureCase">
+    <div class="content" id="listeProfils" >
+        <p *ngFor="let person of InfoBrute">
+          <app-case [personne]="person"  (messageEvent)="receiveMessage($event)"></app-case>
+    </div>
+  </div >
+</div>
 
-      </li>
-    </ul>
-  </div>
-</div >
-
-
-
-
-
+<div class="droit">
+  <app-information-personne [childMessage]="message"></app-information-personne>
+</div>
 
 
 

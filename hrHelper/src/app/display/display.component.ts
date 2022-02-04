@@ -10,6 +10,17 @@ import { BienvenueComponent } from '../bienvenue/bienvenue.component';
   styleUrls: ['./display.component.scss']
 })
 export class DisplayComponent implements OnInit {
+
+  message : any;
+
+  receiveMessage($event: any) {
+    this.message = $event
+
+    console.log(this.message)
+
+
+  }
+
   @Input() InfoBrute = [];
   Filtre:string="";
   ouvertFIltre:string="non";

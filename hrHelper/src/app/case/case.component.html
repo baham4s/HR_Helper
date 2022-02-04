@@ -1,21 +1,18 @@
 
-<div class="personne">
-  <div class="haut">
-    <button pButton pRipple type="button" label="{{titreProfil}}" class="p-button-outlined p-button-info"(click)="ouverture_Info()"></button>
-  </div>
-  <div class="texte">
-    <p>Formations : <br> {{dateFormation}} - {{titreFormation}} - {{niveau}}
-      <!-- Disponibilite : -->  <br>  {{dispo}}
-      <!--Date de mis en ligne : -->  <br> {{dateMAJ}}
-    </p>
-  </div>
-</div>
+    <div class="haut">
+      <button pButton pRipple type="button" label="{{titreProfil}}" class="p-button-outlined p-button-info"(click)="ouverture_Info()"></button>
+    </div>
+    <div class="texte">
+      <p>Formations : <br> {{dateFormation}} - {{titreFormation}} - {{niveau}}
+        <!-- Disponibilite : -->  <br>  {{dispo}}
+        <!--Date de mis en ligne : -->  <br> {{dateMAJ}}
+      </p>
+    </div>
 
 
-<div *ngIf="ouvertureInfo">
-  <div class="affichage">
-    <app-information-personne [Infos]="personne" ></app-information-personne>
-  </div>
-</div >
-
+  <!--<div *ngIf="ouvertureInfo">
+    <div class="affichage">
+      <app-information-personne [Infos]="personne" ></app-information-personne>
+    </div>
+  </div >-->
 

@@ -1,57 +1,10 @@
+.generale{
+  border-width:1px;
+  border-style:dotted;
+  border-color:black;
 
-
-.DispLigne{
-  display: inline;
-}
-.gauche{
-  float: left;
-}
-.droite{
+  margin-top: 0px;
   float: right;
-}
-.titre{
-
-  text-align: center
-}
-
-.exForGra{
-  display: inline;
-}
-.exFor{
-  float: left;
-
-}
-.ex{
-
-
-}
-.for{
-}
-.graphe{
-  float: right;
-  right: 15px;
-}
-.comLang{
-  display: inline;
-}
-.com{
-  float: left;
-
-
-}
-.lang{
-  float: right;
-
-}
-
-.sePoi{
-  display: inline;
-}
-.savoir{
-  float: left;
-
-}
-.fort{
-  float: right;
-
+  height: 80%;
+  width: 55%;
 }
