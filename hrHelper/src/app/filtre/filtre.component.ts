@@ -15,7 +15,7 @@ export class FiltreComponent implements OnInit {
 
 
   Filtre:any=[];
-
+_id='';
   motCle='';
   checked: boolean=false;
   selectedLangue: any=[];
@@ -28,6 +28,7 @@ export class FiltreComponent implements OnInit {
   @Output() notify: EventEmitter<string>=new EventEmitter<string>();
 
   public registerobj={
+    _id: "",
     Permis: false,
     dispoImmedia: "",
     dispoPlusTard: "",
@@ -42,15 +43,13 @@ export class FiltreComponent implements OnInit {
   }
 
   valider_filtre(){
-    console.log("filtre venant de la BDD")
+    //console.log("filtre venant de la BDD")
     this.getFiltre()
-    console.log(this.filtreServeur)
-    console.log("fin venant de la BDD")
-
-
-
-
+    //console.log(this.filtreServeur)
+    //console.log("fin venant de la BDD")
+    //console.log(this.filtreServeur)
     this.registerobj={
+      _id: this._id,
       Permis: this.checked,
       dispoImmedia: this.dispoImmedia.toString(),
       dispoPlusTard:this.dispoPlusTard.toString(),
@@ -59,14 +58,14 @@ export class FiltreComponent implements OnInit {
       motCle:this.motCle.toString()
     };
     this.motCle="";
-    console.log(this.Filtre)
+   // console.log(this.Filtre)
     this.updateFiltre();
     this.callMe();
   }
 
 
   envoyerDonnées(){
-    console.log(this.Filtre);
+    //console.log(this.Filtre);
     this.notify.emit(this.Filtre);
   }
 
@@ -96,21 +95,25 @@ export class FiltreComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.getFiltre().subscribe(data=>{
-      console.log(data);
+     // console.log(data);
       this.filtreServeur=JSON.stringify(data);
 
     })
   }
   getFiltre(){
     this.dataService.getFiltre().subscribe(data=>{
-      console.log("les filtres")
-      console.log(data);
       this.filtreServeur=JSON.stringify(data)
+
+
+      // @ts-ignore
+      this._id = data[0]["_id"]
+
     })
   }
 
   updateFiltre(){
     this.dataService.updateFiltre(this.registerobj);
+
   }
 
   sendData(){
