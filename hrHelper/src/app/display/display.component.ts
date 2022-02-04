@@ -20,6 +20,7 @@ export class DisplayComponent implements OnInit {
   ouvertureChargement :  boolean  =  false
   ouvertureCase :  boolean  =  true
 
+
   changementmode(){
     if(this.ouvertureCase==true){
       this.ouvertureChargement  =  true

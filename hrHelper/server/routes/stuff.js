@@ -25,6 +25,7 @@ router.get('', function(req, res) {
 });
 
 
+// met a jour le filtre avec l 'id
 router.put('', (req, res, next) => {
   console.log(req.body)
   filtre.updateOne({ _id: req.body._id }, { ...req.body, _id: req.body._id })

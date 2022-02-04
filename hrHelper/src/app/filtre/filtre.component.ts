@@ -8,14 +8,11 @@ import { DisplayComponent } from '../display/display.component';
   styleUrls: ['./filtre.component.scss']
 })
 
-
-
-
 export class FiltreComponent implements OnInit {
 
 
   Filtre:any=[];
-_id='';
+  _id='';
   motCle='';
   checked: boolean=false;
   selectedLangue: any=[];
@@ -25,10 +22,14 @@ _id='';
   selectedEtude: any=[];
   etude: any[]=[];
   filtreServeur: any;
+
+
   @Output() notify: EventEmitter<string>=new EventEmitter<string>();
 
+
+  // structure du filtre sur le serveur
   public registerobj={
-    _id: "",
+    _id: "61fc0d5ef81a6df1aa9472c2",
     Permis: false,
     dispoImmedia: "",
     dispoPlusTard: "",
@@ -37,17 +38,15 @@ _id='';
     motCle:""
   };
 
+  // ajoute les mot cle
   ajouterFiltre(element:string){
     this.motCle=this.motCle+element;
     this.envoyerDonnées();
   }
 
+  // valide les filtres get le vieux et le remplace par le nouveau
   valider_filtre(){
-    //console.log("filtre venant de la BDD")
     this.getFiltre()
-    //console.log(this.filtreServeur)
-    //console.log("fin venant de la BDD")
-    //console.log(this.filtreServeur)
     this.registerobj={
       _id: this._id,
       Permis: this.checked,
@@ -58,18 +57,17 @@ _id='';
       motCle:this.motCle.toString()
     };
     this.motCle="";
-   // console.log(this.Filtre)
     this.updateFiltre();
     this.callMe();
   }
 
 
   envoyerDonnées(){
-    //console.log(this.Filtre);
     this.notify.emit(this.Filtre);
   }
 
   constructor(private dataService: DataService,private comp: DisplayComponent) {
+    // filtre des langues
     this.langue = [
       {name: 'Français', code: 'FR'},
       {name: 'Espagnol', code: 'ES'},
@@ -78,6 +76,7 @@ _id='';
       {name: 'Autres', code: 'AU'}
     ];
 
+    // filtres des etudes
     this.etude = [
       {name: 'bac +1'},
       {name: 'bac +2'},
@@ -89,34 +88,37 @@ _id='';
     ];
   }
 
+  // fait appel d'une fonction du composant pere
   public callMe(): void {
     this.comp.GetServeur();
   }
 
   ngOnInit(): void {
+    // recupere le filtre
     this.dataService.getFiltre().subscribe(data=>{
-     // console.log(data);
-      this.filtreServeur=JSON.stringify(data);
-
+    this.filtreServeur=JSON.stringify(data);
+      // @ts-ignore
+      this._id = data[0]["_id"]
     })
+
   }
+
+
+  // recupere l'ensemble des filtres de la BDD
   getFiltre(){
     this.dataService.getFiltre().subscribe(data=>{
       this.filtreServeur=JSON.stringify(data)
-
-
       // @ts-ignore
       this._id = data[0]["_id"]
-
     })
   }
 
+  // met à jour les filtre sur le serveur
   updateFiltre(){
     this.dataService.updateFiltre(this.registerobj);
-
   }
 
+  // cree un filtre sur le serveur
   sendData(){
-   // console.log(this.registerobj);
     this.dataService.registerUser(this.registerobj)  }
 }
