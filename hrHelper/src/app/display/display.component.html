@@ -16,11 +16,7 @@
 
 
 <div class="parent">
-  <div *ngIf="ouvertureInfo">
-    <div class="gauche droit">
-      <app-information-personne [childMessage]="message"></app-information-personne>
-    </div>
-  </div>
+
   <div class="gauche">
     <div *ngIf="ouvertureCase">
       <div class="content" id="listeProfils" >
@@ -30,6 +26,11 @@
     </div >
   </div>
 
+  <div *ngIf="ouvertureInfo">
+    <div class="droit">
+      <app-information-personne [childMessage]="message"></app-information-personne>
+    </div>
+  </div>
 </div>
 
 
