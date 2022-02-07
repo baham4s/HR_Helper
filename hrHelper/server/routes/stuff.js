@@ -28,6 +28,9 @@ router.get('', function(req, res) {
 // met a jour le filtre avec l 'id
 router.put('', (req, res, next) => {
   console.log(req.body)
+  var spawn = require("child_process").spawn;
+  var process = spawn('python',["./hello.py"] );
+
   filtre.updateOne({ _id: req.body._id }, { ...req.body, _id: req.body._id })
     .then(() => res.status(200).json({ message: 'Objet modifié !'}))
     .catch(error => res.status(400).json({ error }));
@@ -35,6 +38,15 @@ router.put('', (req, res, next) => {
 
 
 
+
+
+// // met a jour le filtre avec l 'id
+// router.put('', (req, res, next) => {
+//   console.log(req.body)
+//   filtre.updateOne({ _id: req.body._id }, { ...req.body, _id: req.body._id })
+//     .then(() => res.status(200).json({ message: 'Objet modifié !'}))
+//     .catch(error => res.status(400).json({ error }));
+// });
 
 
 

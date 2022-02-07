@@ -8,3 +8,4 @@ npm install @angular/cdk --save
 npm i chart.js
 npm install body-parser
 
+npm install python-shell

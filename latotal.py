@@ -20,7 +20,7 @@ sh=gc.open("Gspread")
 worksheet = sh.sheet1
 ######################################
 #scrapping
-#worksheet.update_cell(4, 4, 'Robert')
+worksheet.update_cell(4, 4, 'Robert')
 
 
 #importation du fichier csv
@@ -33,12 +33,12 @@ worksheet = sh.sheet1
 
 ###############################""
 
-d=worksheet.get_all_values()
-df = pd.DataFrame(d)
+#d=worksheet.get_all_values()
+#df = pd.DataFrame(d)
 #data = df.iloc[0]
 #worksheet.batch_clear(["A1:C1"])
 #df.columns = [data]
-print(df)
+#print(df)
 
 
 
