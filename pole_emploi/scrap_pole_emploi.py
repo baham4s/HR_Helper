@@ -3,6 +3,12 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.firefox.options import Options
 import re
 import json
+import os
+import sys
+
+# FIX ERROR
+# Message: The element reference of <div class="media-body"> is stale; either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed
+# selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: [id="afficherMasquerTousLesParcours"]
 
 
 # Méthode récupérant les informations sur les expérience et les formations d'un groupe de personne
@@ -137,9 +143,9 @@ def stop(driver, code):
         print("[-] Erreur")
 
 
-def main():
+def main(keyword):
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname("scrap_pole_emploi.py"))))
     # Options permettant de ne pas afficher le navigateur
-    nb_profil = 0
     options = Options()
     options.add_argument('--headless')
 
@@ -149,7 +155,7 @@ def main():
 
     print("[+] Page atteinte")
     # Input des mots clé de l'utilisateur
-    driver.find_element_by_id('token-input-champsMultitagQuoi').send_keys("Haskell")
+    driver.find_element_by_id('token-input-champsMultitagQuoi').send_keys(keyword)
     # Passage de l'étape d'acceptation des cookies
     driver.find_element_by_id('footer_tc_privacy_button_2').click()
     # Lancement de la recherche
@@ -168,8 +174,12 @@ def main():
         stop(driver, 1)
         return
 
-    driver.find_element_by_xpath(
-        '/html/body/main/div[2]/form/div[3]/div[1]/div/div[2]/div/div[2]/div[51]/p/button').click()
+    # 5 correspond a 50 profil
+    nb_clic = 3 if int(nb_profil) > 25 else int(int(nb_profil)/10)
+
+    for i in range(nb_clic):
+        driver.find_element_by_xpath(
+            '/html/body/main/div[2]/form/div[3]/div[1]/div/div[2]/div/div[2]/div[51]/p/button').click()
 
     # Accès a l'interface avancé de vision des CV
     try:
@@ -191,8 +201,10 @@ def main():
     lst_tmp_xp_and_form = []
     lst_tmp_comp = []
 
+    nb_profil = 25 if int(nb_profil) > 25 else int(nb_profil)
+
     # Boucle de parcours de tout les CV disponible a scrapper sur pôle emploi
-    for i in range(int(nb_profil) - 1):
+    for i in range(nb_profil - 1):
         tmp_xp_and_form = []
         tmp_comp = 0
 
@@ -244,9 +256,3 @@ def main():
         file.write(json.dumps(dico, indent=4, ensure_ascii=False))
 
     stop(driver, 0)
-
-
-while True:
-    main()
-
-# %%
