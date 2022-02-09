@@ -8,4 +8,4 @@ const profileSchema = new Schema({
     statut : {type : String, require : true}
 })
 
-module.exports = mongoose.model('profile', profileSchema);
+module.exports = mongoose.model('retour_filtre', profileSchema);

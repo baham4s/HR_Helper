@@ -31,96 +31,113 @@ export class InformationPersonneComponent implements OnInit {
   savoirEtre="";
   langue="";
   permis="";
+  DataGraph=[10, 59, 80, 81, 56, 90, 40];
 
 
-maj(Infos: any){
-  this.dateDeMiseEnLigne=(Infos)["DateMiseEnLigne"];
+
+
+  dataGrahp = {
+    labels: ['date De Mise en ligne', 'formation', 'experience', 'dispo', 'langue'],
+    datasets: [
+      {
+        label: 'Indicateur viuel',
+        backgroundColor: 'rgba(13,191,245,0.2)',
+        borderColor: 'rgba(179,181,198,1)',
+        pointBackgroundColor: 'rgba(179,181,198,1)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgba(179,181,198,1)',
+        data: this.DataGraph
+      },
+      ]
+  }
+
+
+
+
+
+
+maj(Infos: any) {
+  this.dateDeMiseEnLigne = (Infos)["DateMiseEnLigne"];
   // @ts-ignore
-  this.titre=(Infos)["titre"];
+  this.titre = (Infos)["titre"];
   // @ts-ignore
-  this.dispo=(Infos)["dispo"];
+  this.dispo = (Infos)["dispo"];
   // @ts-ignore
-  this.ptsFort=(Infos)["ptsForts"];
+  this.ptsFort = (Infos)["ptsForts"];
   // @ts-ignore
-  this.experience=(Infos)["experience"];
-  this.ngExperiance=[];
-
-
-
-  if(this.experience["length"]==0){
-      // @ts-ignore
-    this.ngExperiance[0]="Aucune Experience"
-     }else {
+  this.experience = (Infos)["experience"];
+  this.ngExperiance = [];
+  if (this.experience["length"] == 0) {
+    // @ts-ignore
+    this.ngExperiance[0] = "Aucune Experience"
+  } else {
     // @ts-ignore
     for (var i in this.experience) {
       // @ts-ignore
       this.ngExperiance[i] = this.experience[i]["titre"] + this.experience[i]["duree"]
     }
-    }
+  }
 
 // @ts-ignore
-  this.formation=(Infos)["formation"];
+  this.formation = (Infos)["formation"];
 
-   this.ngformationSupp=[];
-  if(this.formation["length"]==0) {
+  this.ngformationSupp = [];
+  if (this.formation["length"] == 0) {
     // @ts-ignore
     this.ngformationSupp[0] = "Aucune Formation"
-  }else{
+  } else {
     // @ts-ignore
-    for(var i in this.formation){
-        // @ts-ignore
-        this.ngformationSupp[i] = this.formation[i]["titre"] + this.formation[i]["niveau"] + this.formation[i]["duree"]
+    for (var i in this.formation) {
+      // @ts-ignore
+      this.ngformationSupp[i] = this.formation[i]["titre"] + this.formation[i]["niveau"] + this.formation[i]["duree"]
     }
   }
 
   // @ts-ignore
-  this.competence=(Infos)["competence"];
+  this.competence = (Infos)["competence"];
   // @ts-ignore
-  this.savoirEtre=(Infos)["savoirEtre"];
+  this.savoirEtre = (Infos)["savoirEtre"];
   // @ts-ignore
-  this.langue=(Infos)["langues"];
+  this.langue = (Infos)["langues"];
   // @ts-ignore
-  this.permis=(Infos)["permis"];
-
-}
-
+  this.permis = (Infos)["permis"];
 
 
   // graphique
-  dataGrahp={
-    labels: ['jan','fev','mars','avril','apr','may','jun'],
+  this.dataGrahp = {
+    labels: ['date De Mise en ligne', 'formation', 'experience', 'dispo', 'langue'],
     datasets: [
       {
-        label: 'My First dataset',
+        label: 'Indicateur viuel',
         backgroundColor: 'rgba(13,191,245,0.2)',
         borderColor: 'rgba(179,181,198,1)',
         pointBackgroundColor: 'rgba(179,181,198,1)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgba(179,181,198,1)',
-        data: [65, 59, 90, 81, 56, 55, 10]
+        data: (Infos)["Indice"]
       },
-      {
-        label: 'My First dataset',
-        backgroundColor: 'rgba(13,191,245,0.2)',
-        borderColor: 'rgba(179,181,198,1)',
-        pointBackgroundColor: 'rgba(179,181,198,1)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgba(179,181,198,1)',
-        data: [10, 59, 80, 81, 56, 90, 40]
-      },
+      //{
+      // label: 'My First dataset',
+      // backgroundColor: 'rgba(13,191,245,0.2)',
+      // borderColor: 'rgba(179,181,198,1)',
+      // pointBackgroundColor: 'rgba(179,181,198,1)',
+      // pointBorderColor: '#fff',
+      //pointHoverBackgroundColor: '#fff',
+      // pointHoverBorderColor: 'rgba(179,181,198,1)',
+      // data: [10, 59, 80, 81, 56, 90, 40]
+      //},
 
     ]
   }
-
+}
   constructor() {
 
   }
 
   ngOnInit(): void {
 
-    console.log(this.childMessage)
     // @ts-ignore
 
   }
