@@ -21,6 +21,7 @@ export class DisplayComponent implements OnInit {
   dateFormation: Object = "";
   dateMAJ: Object = "";
   data:Object= "";
+  ouvertureCaseDebut :  boolean  =  false
 
   ouvertureChargement :  boolean  =  false
   ouvertureCase :  boolean  =  true
@@ -41,6 +42,8 @@ export class DisplayComponent implements OnInit {
   }
 
   changementmode(){
+    this.ouvertureCaseDebut=true
+
     if(this.ouvertureCase==true){
       this.ouvertureChargement  =  true
      this. ouvertureCase   =  false
