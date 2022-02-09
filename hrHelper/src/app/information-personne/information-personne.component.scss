@@ -2,6 +2,7 @@
   border-width:1px;
   border-style:dotted;
   border-color:black;
+  overflow-x: hidden;
 
   margin-top: 5px;
   float: right;
@@ -41,7 +42,8 @@
 .trait_dessus
 {
   border-top: 1px solid #000;
-  width : 700px;
+  width : 80%;
+  margin-left: 10%;
 }
 .titre_formation{
   font-weight: bold;
