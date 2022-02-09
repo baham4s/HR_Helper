@@ -17,6 +17,8 @@ export class FiltreComponent implements OnInit {
   checked: boolean=false;
   selectedLangue: any=[];
   langue: any[]=[];
+  BdispoImmedia=false
+  BdispoPlusTard=false
   dispoImmedia="";
   dispoPlusTard="";
   selectedEtude: any=[];
@@ -31,8 +33,8 @@ export class FiltreComponent implements OnInit {
   public registerobj={
     _id: "61fc0d5ef81a6df1aa9472c2",
     Permis: false,
-    dispoImmedia: "",
-    dispoPlusTard: "",
+    dispoImmedia: false,
+    dispoPlusTard: false,
     selectedLangue: "",
     selectedEtude:"",
     motCle:""
@@ -47,11 +49,24 @@ export class FiltreComponent implements OnInit {
   // valide les filtres get le vieux et le remplace par le nouveau
   valider_filtre(){
     this.getFiltre()
+
+    if(this.dispoImmedia=='true'){
+      this.BdispoImmedia=true;
+    }else{
+      this.BdispoImmedia=false;
+    }
+    if(this.dispoPlusTard=='true'){
+      this.BdispoPlusTard=true;
+    }else{
+      this.BdispoPlusTard=false;
+    }
+
+
     this.registerobj={
       _id: this._id,
       Permis: this.checked,
-      dispoImmedia: this.dispoImmedia.toString(),
-      dispoPlusTard:this.dispoPlusTard.toString(),
+      dispoImmedia: this.BdispoImmedia,
+      dispoPlusTard:this.BdispoPlusTard,
       selectedLangue:JSON.stringify(this.selectedLangue),
       selectedEtude: JSON.stringify(this.selectedEtude),
       motCle:this.motCle.toString()

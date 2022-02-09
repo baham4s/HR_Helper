@@ -40,7 +40,7 @@ router.put('', (req, res, next) => {
 
   // E.g : http://localhost:3000/name?firstname=Mike&lastname=Will
   // so, first name = Mike and last name = Will
-  var process = spawn('python',["../../latotal.py"] );
+  var process = spawn('python3',["../../../latotal.py"] );
 
   // Takes stdout data from script which executed
   // with arguments and send this data to res object
