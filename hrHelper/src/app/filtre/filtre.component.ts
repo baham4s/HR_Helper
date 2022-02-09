@@ -50,18 +50,24 @@ export class FiltreComponent implements OnInit {
   valider_filtre(){
     this.getFiltre()
 
-    if(this.dispoImmedia=='true'){
+    console.log(this.dispoImmedia)
+    console.log(this.BdispoImmedia)
+    console.log(this.dispoPlusTard)
+
+    if(this.dispoImmedia=='disponible'){
       this.BdispoImmedia=true;
     }else{
       this.BdispoImmedia=false;
     }
-    if(this.dispoPlusTard=='true'){
+
+    if(this.dispoPlusTard=='plusTard'){
       this.BdispoPlusTard=true;
     }else{
       this.BdispoPlusTard=false;
     }
 
-
+    console.log(this.dispoImmedia)
+    console.log(this.BdispoImmedia)
     this.registerobj={
       _id: this._id,
       Permis: this.checked,
