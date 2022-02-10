@@ -6,21 +6,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
 
-   /* CORS Issue :
-   * Angular server by default serves on localhost:4200 (PORT 4200) and suppose
-   * if your backend server is working on different port or domain, then the CORS
-   * issue will inevitably occur.
-   */
-
-  //private REST_API_SERVER = "/api/v1/profile";
   private REST_API_SERVER = "http://localhost:3001/api/v1/profile";
   constructor(private httpClient: HttpClient) { }
-
+// recupere l'emble des profils
   public sendGetRequest()  {
     return this.httpClient.get(this.REST_API_SERVER);
   }
 
-
+  // creer le filtre sur la BDD
   public registerUser(registerobj:any)  {
     console.log(registerobj)
      return this.httpClient.post('http://localhost:3001/register',registerobj, {observe:'response'}).subscribe(res =>{
@@ -29,10 +22,12 @@ export class DataService {
     });
   }
 
+  // recupere le filtre
   public getFiltre()  {
     return this.httpClient.get('http://localhost:3001/register');
   }
 
+  // met a jour le filtre
   public updateFiltre(registeribj:any){
     return this.httpClient.put('http://localhost:3001/register',registeribj, {observe:'response'}).subscribe(res =>{
       console.log("res");

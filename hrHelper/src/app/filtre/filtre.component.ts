@@ -9,8 +9,6 @@ import { DisplayComponent } from '../display/display.component';
 })
 
 export class FiltreComponent implements OnInit {
-
-
   Filtre:any=[];
   _id='';
   motCle='';
@@ -25,7 +23,7 @@ export class FiltreComponent implements OnInit {
   etude: any[]=[];
   filtreServeur: any;
 
-
+  // envoyer les filtre dans le composant pere (display)
   @Output() notify: EventEmitter<string>=new EventEmitter<string>();
 
 
@@ -49,23 +47,19 @@ export class FiltreComponent implements OnInit {
   // valide les filtres get le vieux et le remplace par le nouveau
   valider_filtre(){
     this.getFiltre()
-
     console.log(this.dispoImmedia)
     console.log(this.BdispoImmedia)
     console.log(this.dispoPlusTard)
-
     if(this.dispoImmedia=='disponible'){
       this.BdispoImmedia=true;
     }else{
       this.BdispoImmedia=false;
     }
-
     if(this.dispoPlusTard=='plusTard'){
       this.BdispoPlusTard=true;
     }else{
       this.BdispoPlusTard=false;
     }
-
     console.log(this.dispoImmedia)
     console.log(this.BdispoImmedia)
     this.registerobj={
@@ -81,8 +75,7 @@ export class FiltreComponent implements OnInit {
     this.updateFiltre();
     this.callMe();
   }
-
-
+  // envopyer les donner dans le serveur via le service
   envoyerDonnées(){
     this.notify.emit(this.Filtre);
   }
@@ -121,7 +114,6 @@ export class FiltreComponent implements OnInit {
       // @ts-ignore
       this._id = data[0]["_id"]
     })
-
   }
 
 
@@ -136,7 +128,6 @@ export class FiltreComponent implements OnInit {
 
   // met à jour les filtre sur le serveur
   updateFiltre(){
-    
     this.dataService.updateFiltre(this.registerobj);
   }
 

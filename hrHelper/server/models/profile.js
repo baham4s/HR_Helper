@@ -8,4 +8,5 @@ const profileSchema = new Schema({
     statut : {type : String, require : true}
 })
 
+// on recupere l'ensemble des donner qui provienne de la table retour-filtre
 module.exports = mongoose.model('retour_filtre', profileSchema);

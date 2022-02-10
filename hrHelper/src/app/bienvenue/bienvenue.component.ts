@@ -9,19 +9,17 @@ import {DataService} from "../data.service";
 })
 export class BienvenueComponent implements OnInit {
   data: any = [];
-
-
   chartOptions: any;
+
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.GetServeur();
-
-
-
   }
+
   title = 'hrHelper';
 
+  // affichade du composant display
   presentation(){
     // @ts-ignore
     document.getElementById('presentation').style.display='none';
@@ -29,7 +27,7 @@ export class BienvenueComponent implements OnInit {
     document.getElementById('main').style.display='block';
   }
 
-
+  // recuperation des personnes
   public GetServeur(){
     this.dataService.sendGetRequest().subscribe(data=>{
       console.log(data);

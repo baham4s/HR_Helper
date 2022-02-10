@@ -15,34 +15,19 @@ export class CaseComponent implements OnInit {
   formation: Object = "";
   idPersonne: String = "";
   ouvertureInfo :  boolean  =  false
-  @Input() personne = [];
-
- ouvertInfo:string="non";
-
-
+  ouvertInfo:string="non";
   message: string = "Hello!"
 
+  // permet d'importer et d'exporter des infos du composant
+  @Input() personne = [];
   @Output() messageEvent = new EventEmitter<any>();
-
-
-
 
   constructor() { }
   ouverture_Info() {
     this.messageEvent.emit(this.personne)
-
-    // if (this.ouvertInfo == "non") {
-    //  this.ouvertureInfo=true
-    //   this.ouvertInfo = "oui"
-    // } else {
-    //   this.ouvertureInfo=false
-    //   this.ouvertInfo = "non";
-    // }
   }
 
-
-
-
+  // initialisation de toutes les donner dans le composant
   ngOnInit(): void {
     // @ts-ignore
     this.idPersonne=this.personne["_id"];

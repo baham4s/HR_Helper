@@ -6,10 +6,8 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./information-personne.component.scss']
 })
 export class InformationPersonneComponent implements OnInit {
- // @Input() childMessage = []
-
-
-@Input() set childMessage(valeur: any) {
+  // recupere les infos du composant pere et met à jour les donner
+  @Input() set childMessage(valeur: any) {
   console.log(valeur["dispo"])
   this.maj(valeur)
   //this.Infos =valeur;
@@ -33,9 +31,6 @@ export class InformationPersonneComponent implements OnInit {
   permis="";
   DataGraph=[10, 59, 80, 81, 56, 90, 40];
 
-
-
-
   dataGrahp = {
     labels: ['date De Mise en ligne', 'formation', 'experience', 'dispo', 'langue'],
     datasets: [
@@ -52,11 +47,7 @@ export class InformationPersonneComponent implements OnInit {
       ]
   }
 
-
-
-
-
-
+// met à jour l'ensemble des donné du composant
 maj(Infos: any) {
   this.dateDeMiseEnLigne = (Infos)["DateMiseEnLigne"];
   // @ts-ignore
@@ -81,7 +72,6 @@ maj(Infos: any) {
 
 // @ts-ignore
   this.formation = (Infos)["formation"];
-
   this.ngformationSupp = [];
   if (this.formation["length"] == 0) {
     // @ts-ignore
@@ -93,7 +83,6 @@ maj(Infos: any) {
       this.ngformationSupp[i] = this.formation[i]["titre"] + this.formation[i]["niveau"] + this.formation[i]["duree"]
     }
   }
-
   // @ts-ignore
   this.competence = (Infos)["competence"];
   // @ts-ignore
@@ -102,8 +91,6 @@ maj(Infos: any) {
   this.langue = (Infos)["langues"];
   // @ts-ignore
   this.permis = (Infos)["permis"];
-
-
   // graphique
   this.dataGrahp = {
     labels: ['date De Mise en ligne', 'formation', 'experience', 'dispo', 'langue'],
@@ -128,18 +115,11 @@ maj(Infos: any) {
       // pointHoverBorderColor: 'rgba(179,181,198,1)',
       // data: [10, 59, 80, 81, 56, 90, 40]
       //},
-
     ]
   }
 }
-  constructor() {
+  constructor() {}
 
-  }
-
-  ngOnInit(): void {
-
-    // @ts-ignore
-
-  }
+  ngOnInit(): void { }
 
 }

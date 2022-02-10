@@ -3,18 +3,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const config = require('./config/dev.js');
-const Profile = require('./models/profile.js');
 const profileRoutes = require('./routes/profileRoutes.js');
 const cors = require('cors');
 const app = express();
-const User = require('./models/Filtre.js');
-
 const stuffRoute=require('./routes/stuff.js');
-
-
-
-// mongoimport --uri mongodb+srv://hrhelper:hrhelper@nodeapp.bhdfx.mongodb.net/PoleEmploiDB --collection PoleEmploi --type JSON --file pole_emploi.json
-
 // Handle Cors Error
 app.use(cors());
 

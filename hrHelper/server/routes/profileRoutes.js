@@ -1,6 +1,5 @@
 const express = require('express');
 const Profile = require('../models/profile.js')
-
 const router = express.Router();
 
 // Recupération de toutes la BDD
@@ -21,11 +20,4 @@ router.get('/:id', function(req, res) {
         res.json(foundProfile);
 	});
 });
-
-
-
-// exemple :
-//  http://localhost:3001/api/v1/profile/61e426adb54bbeaed1eb37a7
-
-
 module.exports = router;

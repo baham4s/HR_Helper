@@ -10,56 +10,52 @@ import { BienvenueComponent } from '../bienvenue/bienvenue.component';
   styleUrls: ['./display.component.scss']
 })
 export class DisplayComponent implements OnInit {
+  // recuperation de la personne par le composant pere
+  @Input() InfoBrute = [];
 
   message : any;
-
-
-
-  @Input() InfoBrute = [];
   Filtre:string="";
   ouvertFIltre:string="non";
   dateFormation: Object = "";
   dateMAJ: Object = "";
   data:Object= "";
   ouvertureCaseDebut :  boolean  =  false
-
   ouvertureChargement :  boolean  =  false
   ouvertureCase :  boolean  =  true
   ouvertureInfo :  boolean  =  false
   ouvertureFiltre:  boolean  =  true
 
+  // Afficher oui ou non le composant information-personne
   receiveMessage($event: any) {
     this.message = $event
   if(this.ouvertureInfo==false){
     this.ouvertureInfo=true;
     this.ouvertureFiltre=false;
-
   }else{
     this.ouvertureInfo=false;
     this.ouvertureFiltre=true;
-
+    }
   }
-  }
 
+  // affiche les cases des personne ou le logo de chargement
   changementmode(){
     this.ouvertureCaseDebut=true
-
     if(this.ouvertureCase==true){
-      this.ouvertureChargement  =  true
-     this. ouvertureCase   =  false
-    }else {
-     this. ouvertureChargement =  false
-     this. ouvertureCase =  true
+      this.ouvertureChargement=true
+      this.ouvertureCase=false
+    }else{
+     this.ouvertureChargement=false
+     this.ouvertureCase=true
     }
   }
 
 
-
+// permet de notifier le filtre avec les informations
   onNotifyClickedFiltre(message:string):void{
     this.Filtre=message;
   }
 
-  // ouverture des filtres
+  // ouverture du composant des filtres
   ouverture_filtre(){
     if(this.ouvertFIltre=="non"){
       // @ts-ignore
@@ -71,18 +67,12 @@ export class DisplayComponent implements OnInit {
       this.ouvertFIltre="non";
     }
   }
-
-
-
-
+  // demande au composant pere d'executer ka fonction getServeur
   public GetServeur(): void {
     this.comp.GetServeur();
-
     this.changementmode();
     setTimeout(() => {  this.changementmode(); }, 2000);
   }
-
-
 
   products = [];
   totalAngularPackages: any;
@@ -90,7 +80,6 @@ export class DisplayComponent implements OnInit {
 
   constructor(private dataService: DataService,private comp: BienvenueComponent) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }
