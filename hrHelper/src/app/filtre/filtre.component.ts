@@ -136,6 +136,7 @@ export class FiltreComponent implements OnInit {
 
   // met à jour les filtre sur le serveur
   updateFiltre(){
+    
     this.dataService.updateFiltre(this.registerobj);
   }
 

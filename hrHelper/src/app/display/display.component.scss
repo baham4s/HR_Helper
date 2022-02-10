@@ -69,6 +69,45 @@ p {
   position: relative;
 
 }
+#slides{
+  animation: square-to-circle 2s infinite alternate;
+
+}
+
+ 
+@keyframes square-to-circle {
+  0%  {
+    border-radius:0 0 0 0;
+    background:coral;
+ 
+  }
+  25%  {
+    border-radius:10% 10% 10% 10%;
+    background:darksalmon;
+    
+  }
+  50%  {
+    border-radius:25% 25% 25% 25%;
+    background:indianred;
+    
+  }
+  75%  { 
+    border-radius:40% 40% 40% 40%;
+    background:lightcoral;
+  }
+  100% {  
+    border-radius:50%;
+    background:darksalmon;
+  }
+}
+
+
+
+
+
+
+
+
 
 
 .content{
