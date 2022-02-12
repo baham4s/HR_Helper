@@ -29,7 +29,7 @@ router.get('', function(req, res) {
 
 const {PythonShell} = require('python-shell');
 
-// met a jour le filtre avec l 'id
+// met a jour le filtre avec l 'id avec l'execution du programme python
 router.put('', (req, res, next) => {
   console.log(req.body)
 // PythonShell.run('../../../../pole_emploi/./filtre_mots.py', null, function (err, results) {
