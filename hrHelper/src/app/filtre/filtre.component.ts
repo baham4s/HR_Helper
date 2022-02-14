@@ -83,10 +83,10 @@ export class FiltreComponent implements OnInit {
   constructor(private dataService: DataService,private comp: DisplayComponent) {
     // filtre des langues
     this.langue = [
-      {name: 'Français', code: 'FR'},
-      {name: 'Espagnol', code: 'ES'},
       {name: 'Allemand', code: 'ALL'},
       {name: 'Anglais', code: 'AN'},
+      {name: 'Espagnol', code: 'ES'},
+      {name: 'Français', code: 'FR'},
       {name: 'Autres', code: 'AU'}
     ];
 
