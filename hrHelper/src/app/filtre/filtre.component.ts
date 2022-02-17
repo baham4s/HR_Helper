@@ -73,6 +73,7 @@ export class FiltreComponent implements OnInit {
     };
     this.motCle="";
     this.updateFiltre();
+
     this.callMe();
   }
   // envopyer les donner dans le serveur via le service
