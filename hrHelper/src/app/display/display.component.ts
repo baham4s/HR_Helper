@@ -69,14 +69,11 @@ export class DisplayComponent implements OnInit {
   }
   // demande au composant pere d'executer ka fonction getServeur
   public GetServeur(): void {
-    //this.comp.GetServeur();
+    this.comp.GetServeur();
     this.changementmode();
-
     setTimeout(() => {  this.changementmode();
       console.log("demande f5 serveur")
       this.comp.GetServeur();}, 2000);
-
-
   }
 
   products = [];

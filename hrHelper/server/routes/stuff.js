@@ -33,7 +33,7 @@ const {PythonShell} = require('python-shell');
 router.put('', (req, res, next) => {
   console.log(req.body)
 // PythonShell.run('../../../../pole_emploi/./filtre_mots.py', null, function (err, results) {
-  PythonShell.run('./filtre_mots.py', null, function (err, results) {
+  PythonShell.run('./main.py', null, function (err, results) {
     if (err) throw err;
     console.log('finished');
     console.log(results);
