@@ -1,0 +1,12 @@
+lastName
+firstName
+dateRange
+degreeName
+description
+fieldOfStudy
+schoolName
+companyName
+title
+locationName
+multiLocaleSummary
+publicIdentifier
