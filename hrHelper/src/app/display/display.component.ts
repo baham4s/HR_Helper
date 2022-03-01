@@ -19,7 +19,7 @@ export class DisplayComponent implements OnInit {
   dateFormation: Object = "";
   dateMAJ: Object = "";
   data:Object= "";
-  ouvertureCaseDebut :  boolean  =  false
+  ouvertureCaseDebut :  boolean  =  true
   ouvertureChargement :  boolean  =  false
   ouvertureCase :  boolean  =  true
   ouvertureInfo :  boolean  =  false
@@ -28,6 +28,7 @@ export class DisplayComponent implements OnInit {
   // Afficher oui ou non le composant information-personne
   receiveMessage($event: any) {
     this.message = $event
+
   if(this.ouvertureInfo==false){
     this.ouvertureInfo=true;
     this.ouvertureFiltre=false;

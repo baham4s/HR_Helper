@@ -21,10 +21,24 @@ export class CaseComponent implements OnInit {
   // permet d'importer et d'exporter des infos du composant
   @Input() personne = [];
   @Output() messageEvent = new EventEmitter<any>();
+  buttonColor: string = '#ffffff'; //Default Color
 
   constructor() { }
   ouverture_Info() {
-    this.messageEvent.emit(this.personne)
+    this.messageEvent.emit(this.personne);
+   //  // @ts-ignore
+   //  document.getElementById("contour").style.backgroundColor="#ffffff";
+   //  // @ts-ignore
+   // // document.getElementById("contour").style.backgroundColor="#
+   //  document.getElementById("contour").style.backgroundColor="#87CEEB";
+
+    if(this.buttonColor=='#ffffff'){
+      this.buttonColor = '#87CEEB'; //desired Color
+    }else {
+      this.buttonColor = '#ffffff'; //desired Color
+    }
+
+
   }
 
   // initialisation de toutes les donner dans le composant

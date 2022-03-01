@@ -3,7 +3,7 @@ import os
 import sys
 import time
 import re
-
+import json
 
 def organise(file):
     dico = {}
@@ -36,10 +36,10 @@ def organise(file):
 
 # Méthode qui renvoi un indice de date de mise en ligne
 # -> (date_mise_en_ligne/date_actuel), les indices sont stocker dans un tableau
-def dateMiseEnLigne(date):
-    jour = date[21:23]  # Recupération du jours dans la chaine de caractère
-    mois = date[24:26]  # Récupération du mois dans la chaine de caractère
-    annee = date[27:31]  # Récuperation de l'année dans la chaine de caractère
+def dateMiseEnLigne(date): # mettre +1
+    jour = date[22:24]  # Recupération du jours dans la chaine de caractère
+    mois = date[25:27]  # Récupération du mois dans la chaine de caractère
+    annee = date[28:32]  # Récuperation de l'année dans la chaine de caractère
 
     d = datetime.date(int(annee), int(mois),
                       int(jour))  # Création de la date de publication du profil en format Datetime python
@@ -52,7 +52,7 @@ def dateMiseEnLigne(date):
     unixtimeProfil = float(str(time.mktime(d.timetuple()))[2:])
     unixtimeToday = float(str(time.mktime(z.timetuple()))[2:])
 
-    # Création de l'indice 
+    # Création de l'indice
     return int((unixtimeProfil / unixtimeToday) * 100)
 
 
@@ -121,3 +121,11 @@ def calculIndiceProfil(file):
              niveauLangues(dico.get("langues")[i])]
         A.append(z)
     return A
+
+
+f = open("bdd.json", "r")
+f_read = json.load(f)
+
+matriceIndice = calculIndiceProfil(f_read)
+print(matriceIndice)
+

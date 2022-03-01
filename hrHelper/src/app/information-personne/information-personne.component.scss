@@ -1,88 +1,151 @@
-.generale{
-  border-width:1px;
-  border-style:dotted;
-  border-color:black;
-  overflow-x: hidden;
 
-  margin-top: 5px;
-  float: right;
-  height: 80%;
-  width: 55%;
-}
-.L1{
-  margin-top: 10px;
-  width: 100%;
-}
-.L1e{
-  float: left; width: 33%;
-}
+@media (max-width: 850px) {
+  #generale {
+    position: relative  ; z-index: 4;
+    background-color: #c2e7f6;
+    border-width:1px;
+    border-style:dotted;
+    border-color:black;
+    overflow-x: hidden;
+    margin-top: 5px;
+    float: right;
+  }
+  .titreptsFort{
+    font-weight: bold;
+  }
+  .titresavoirEtre{
+    font-weight: bold;
+  }
+  .titre{
+    margin-top: 15px;
+    text-align: center;
+    background: black;
+    font-size: 18px;
+    color: aliceblue;
+  }
+  .titrecompetence{
+    font-weight: bold;
+  }
+  .titreLangue{
+    font-weight: bold;
+  }
+  .titreExperiance{
+    font-weight: bold;
+  }
 
-.titre{
-  margin-top: 15px;
-  text-align: center;
-  background: black;
-  font-size: 18px;
-  color: aliceblue;
-}
-
-.L3{
-  margin-top: 10px;
-  width: 130%;
-}
-.experience{
-  float: left; width: 30%;
-
-}
-.graphique{
-  float: left; width: 45%;
-}
-.titreExperiance{
-  font-weight: bold;
-}
-.trait_dessus
-{
-  border-top: 1px solid #000;
-  width : 80%;
-  margin-left: 10%;
-}
-.titre_formation{
-  font-weight: bold;
-}
-.formation{
+  .titre_formation{
+    font-weight: bold;
+  }
 
 }
-.L4{
-  margin-top: 10px;
-  width: 100%;
-}
-.competence{
-  float: left; width: 49%;
-}
-.titrecompetence{
-  font-weight: bold;
-}
-.langue{
-  float: left; width: 50%;
-}
-.titreLangue{
-  font-weight: bold;
-}
+@media (min-width: 850px) {
+  #generale {
+    width: 55%;
+  }
+  .trait_dessus
+  {
+    border-top: 1px solid #000;
+    width : 80%;
+    margin-left: 10%;
+  }
+  #generale{
+    border-width:1px;
+    border-style:dotted;
+    border-color:black;
+    overflow-x: hidden;
+    background-color: white;
+    margin-top: 5px;
+    float: right;
+    height: 80%;
+  }
+  .L1{
+    margin-top: 10px;
+    width: 100%;
+    margin-left: 5px;
+
+  }
+  .L1e{
+    float: left; width: 33%;
+  }
+
+  .titre{
+    margin-top: 15px;
+    text-align: center;
+    background: black;
+    font-size: 18px;
+    color: aliceblue;
+  }
+
+  .L3{
+    margin-top: 10px;
+    width: 130%;
+    margin-left: 5px;
+
+  }
+  .experience{
+    float: left; width: 30%;
+    margin-left: 5px;
+
+
+  }
+  .graphique{
+    float: left; width: 45%;
+  }
+  .titreExperiance{
+    font-weight: bold;
+  }
+
+  .titre_formation{
+    font-weight: bold;
+  }
+  .formation{
+    margin-left: 5px;
+
+
+  }
+  .L4{
+    margin-top: 10px;
+    width: 100%;
+    margin-left: 5px;
+
+  }
+  .competence{
+    float: left; width: 49%;
+  }
+  .titrecompetence{
+    font-weight: bold;
+  }
+  .titreLangue{
+    font-weight: bold;
+  }
+  .langue{
+    float: left; width: 50%;
+  }
 
 
 
-.L5{
-  margin-top: 20px;
-  width: 100%;
+
+  .L5{
+    margin-top: 20px;
+    width: 100%;
+  }
+  .savoirEtre{
+    float: left; width: 49%;
+  }
+
+  .ptsFort{
+    float: left; width: 50%;
+    margin-left: 5px;
+
+  }
+  .titreptsFort{
+    font-weight: bold;
+  }
+  .titresavoirEtre{
+    font-weight: bold;
+  }
 }
-.savoirEtre{
-  float: left; width: 49%;
-}
-.titresavoirEtre{
-  font-weight: bold;
-}
-.ptsFort{
-  float: left; width: 50%;
-}
-.titreptsFort{
-  font-weight: bold;
+#generale{
+  visibility: visible;
+
 }

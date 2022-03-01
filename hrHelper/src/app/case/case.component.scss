@@ -1,4 +1,8 @@
-
+@media (max-width: 800px) {
+  #menuInfo {
+    position: relative;
+  }
+}
 #menuInfo{
   display: none;
   position: fixed;
@@ -10,18 +14,21 @@
   border-style:solid;
   border-color:#1976d2;
   background: #87CEEB	;
+
 }
 
 .haut{
   width: 100%;
 }
 .texte{
+  margin-left: 5px;
   width: 65%;
 }
-.contour{
+#contour{
   margin-bottom: 20px;
   border-width:1px;
   border-style:dotted;
   border-color:black;
   width: 100%;
+  background: white;
 }

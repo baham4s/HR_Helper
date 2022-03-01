@@ -1,3 +1,20 @@
+@media (min-width: 800px) {
+  .droit{
+    margin-top: 50px;
+    width: 80%;
+    float: right;
+    margin-left: 20%;
+    position: relative  ; z-index: 4;
+
+  }
+}
+@media (max-width: 800px) {
+  .droit{
+
+
+  }
+}
+
 :host {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
@@ -40,19 +57,7 @@ p {
   margin: 0 16px;
 }
 
-#menuInfo{
-  display: none;
-  position: fixed;
-  bottom: 5px;
-  right: 5px;
-  height: 90%;
-  width: 55%;
-  border-width:1px;
-  border-style:solid;
-  border-color:#1976d2;
-  background: #87CEEB	;
 
-}
 
 
 #menuFiltre{
@@ -69,37 +74,7 @@ p {
   position: relative;
 
 }
-#slides{
-  animation: square-to-circle 2s infinite alternate;
 
-}
-
- 
-@keyframes square-to-circle {
-  0%  {
-    border-radius:0 0 0 0;
-    background:coral;
- 
-  }
-  25%  {
-    border-radius:10% 10% 10% 10%;
-    background:darksalmon;
-    
-  }
-  50%  {
-    border-radius:25% 25% 25% 25%;
-    background:indianred;
-    
-  }
-  75%  { 
-    border-radius:40% 40% 40% 40%;
-    background:lightcoral;
-  }
-  100% {  
-    border-radius:50%;
-    background:darksalmon;
-  }
-}
 
 
 
@@ -121,13 +96,7 @@ p {
   position: absolute;
 
 }
-.droit{
-  margin-top: 50px;
-  width: 80%;
-  float: right;
-  margin-left: 20%;
 
-}
 .personne{
   border-width:1px;
   border-style:dotted;

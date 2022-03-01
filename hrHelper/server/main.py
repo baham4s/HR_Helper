@@ -34,7 +34,7 @@ def send_mongo(data):
 # scrapping.main("Java")
 
 # Ouverture BDD
-f = open("bdd.json", "r")
+f = open("bdd.json", "r",encoding='utf-8')
 f_read = json.load(f)
 
 # Récupération de filtre via une requete

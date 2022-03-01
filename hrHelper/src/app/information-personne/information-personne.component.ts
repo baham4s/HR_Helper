@@ -13,6 +13,7 @@ export class InformationPersonneComponent implements OnInit {
   //this.Infos =valeur;
 }
 
+
   // @ts-ignore
   Infos=this.childMessage;
   // @ts-ignore
@@ -47,6 +48,14 @@ export class InformationPersonneComponent implements OnInit {
       ]
   }
 
+  fermer(){
+      // @ts-ignore
+    document.getElementById("generale").style.visibility="hidden";
+    //  // @ts-ignore
+    // // document.getElementById("contour").style.backgroundColor="#
+    //  document.getElementById("contour").style.backgroundColor="#87CEEB";
+
+  }
 // met à jour l'ensemble des donné du composant
 maj(Infos: any) {
   this.dateDeMiseEnLigne = (Infos)["DateMiseEnLigne"];

@@ -1,6 +1,6 @@
-<div class="contour">
+<div id="contour">
     <div class="haut">
-      <button pButton pRipple type="button" label="{{titreProfil}}" class="p-button-outlined p-button-info"(click)="ouverture_Info()"></button>
+      <button pButton pRipple type="button" label="{{titreProfil}}" class="p-button-outlined p-button-info"[ngStyle]="{'background-color': buttonColor}" (click)="ouverture_Info()"></button>
     </div>
     <div class="texte">
       <p>Formations : <br> {{dateFormation}} - {{titreFormation}} - {{niveau}}

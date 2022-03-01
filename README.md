@@ -9,3 +9,5 @@ npm i chart.js
 npm install body-parser
 
 npm install python-shell
+npm install jsdoc angular-jsdoc --save-dev
+npm install gulp-shell --save-dev
