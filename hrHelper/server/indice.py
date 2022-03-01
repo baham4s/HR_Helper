@@ -37,23 +37,7 @@ def organise(file):
 # Méthode qui renvoi un indice de date de mise en ligne
 # -> (date_mise_en_ligne/date_actuel), les indices sont stocker dans un tableau
 def dateMiseEnLigne(date): # mettre +1
-    jour = date[22:24]  # Recupération du jours dans la chaine de caractère
-    mois = date[25:27]  # Récupération du mois dans la chaine de caractère
-    annee = date[28:32]  # Récuperation de l'année dans la chaine de caractère
-
-    d = datetime.date(int(annee), int(mois),
-                      int(jour))  # Création de la date de publication du profil en format Datetime python
-
-    # Création de la date du système
-    today = datetime.date.today()
-    z = datetime.date(today.year, today.month, today.day)
-
-    # Transformation des dates en float et on soustrait les deux premières valeurs pour ne pas prendre en compte l'année
-    unixtimeProfil = float(str(time.mktime(d.timetuple()))[2:])
-    unixtimeToday = float(str(time.mktime(z.timetuple()))[2:])
-
-    # Création de l'indice
-    return int((unixtimeProfil / unixtimeToday) * 100)
+    return 100
 
 
 # Méthode qui renvoi un indice du niveau de formation d'un profil
