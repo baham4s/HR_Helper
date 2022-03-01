@@ -1,4 +1,5 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,Output } from '@angular/core';
+import {DisplayComponent} from "../display/display.component";
 
 @Component({
   selector: 'app-information-personne',
@@ -28,6 +29,7 @@ export class InformationPersonneComponent implements OnInit {
   formation="";
   competence="";
   savoirEtre="";
+  id="";
   langue="";
   permis="";
   DataGraph=[10, 59, 80, 81, 56, 90, 40];
@@ -51,13 +53,22 @@ export class InformationPersonneComponent implements OnInit {
   fermer(){
       // @ts-ignore
     document.getElementById("generale").style.visibility="hidden";
+    this.callMe();
     //  // @ts-ignore
     // // document.getElementById("contour").style.backgroundColor="#
     //  document.getElementById("contour").style.backgroundColor="#87CEEB";
 
   }
+  // fait appel d'une fonction du composant pere
+  public callMe(): void {
+    console.log(this.id)
+    this.comp.changercouleur(this.id);
+  }
 // met à jour l'ensemble des donné du composant
 maj(Infos: any) {
+  this.id=(Infos)["_id"];
+
+    console.log((Infos)["_id"]);
   this.dateDeMiseEnLigne = (Infos)["DateMiseEnLigne"];
   // @ts-ignore
   this.titre = (Infos)["titre"];
@@ -127,7 +138,7 @@ maj(Infos: any) {
     ]
   }
 }
-  constructor() {}
+  constructor(private comp: DisplayComponent) {}
 
   ngOnInit(): void { }
 

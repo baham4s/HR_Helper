@@ -23,6 +23,9 @@ export class CaseComponent implements OnInit {
   @Output() messageEvent = new EventEmitter<any>();
   buttonColor: string = '#ffffff'; //Default Color
 
+
+
+
   constructor() { }
   ouverture_Info() {
     this.messageEvent.emit(this.personne);
@@ -72,6 +75,10 @@ export class CaseComponent implements OnInit {
     //DISPONIBILITE
     // @ts-ignore
     this.dispo = this.personne["dispo"];
+    if(this.dispo==this.idPersonne){
+      console.log("oui");
+    }
+
   }
 
 }

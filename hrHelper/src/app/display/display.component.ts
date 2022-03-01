@@ -25,6 +25,10 @@ export class DisplayComponent implements OnInit {
   ouvertureInfo :  boolean  =  false
   ouvertureFiltre:  boolean  =  true
 
+  ouvertureApropos:  boolean  =  false
+  ouvertureContact:  boolean  =  false
+  displaye:  boolean  =  true
+
   // Afficher oui ou non le composant information-personne
   receiveMessage($event: any) {
     this.message = $event
@@ -50,6 +54,19 @@ export class DisplayComponent implements OnInit {
     }
   }
 
+  changercouleur(id: string){
+    this.ouvertureFiltre=true;
+    console.log(id);
+    console.log(this.InfoBrute);
+    for(let i=0; i<this.InfoBrute["length"];i++){
+      // @ts-ignore
+      this.InfoBrute[i]["dispo"]=id;
+      console.log(this.InfoBrute);
+
+    }
+
+
+  }
 
 // permet de notifier le filtre avec les informations
   onNotifyClickedFiltre(message:string):void{
@@ -85,4 +102,32 @@ export class DisplayComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  apropos() {
+    if(this.displaye==true){
+        this.ouvertureApropos=true;
+        this.displaye=false;
+      this.ouvertureContact=false;
+
+    }else{
+      this.ouvertureApropos=false;
+      this.displaye=true;
+      this.ouvertureContact=false;
+
+    }
+
+  }
+
+  contact() {
+    if(this.displaye==true){
+      this.ouvertureContact=true;
+      this.displaye=false;
+      this.ouvertureApropos=false;
+
+    }else{
+      this.ouvertureContact=false;
+      this.displaye=true;
+      this.ouvertureApropos=false;
+
+    }
+  }
 }

@@ -5,6 +5,11 @@
     src="../assets/img/hr.png"
   />
   <span>HrHelper</span>
+
+  <div class="boutonInfo">
+  <button pButton pRipple type="button" label="A propos" class="p-button-outlined p-button-info"(click)="apropos()"></button>
+  <button pButton pRipple type="button" label="Contact" class="p-button-outlined p-button-info"(click)="contact()"></button>
+</div>
 </div>
 
 
@@ -13,15 +18,21 @@
     <p-progressSpinner></p-progressSpinner>
   </div>
 </div >
+<div *ngIf="ouvertureApropos">
+  <app-apropos></app-apropos>
+</div>
+<div *ngIf="ouvertureContact">
+  <app-contact></app-contact>
+</div>
 
-
+<div *ngIf="displaye">
 <div class="parent">
   <div *ngIf="ouvertureCaseDebut">
    <div class="gauche">
       <div *ngIf="ouvertureCase">
         <div class="content" id="listeProfils" >
             <p *ngFor="let person of InfoBrute">
-              <app-case [personne]="person"  (messageEvent)="receiveMessage($event)"></app-case>
+               <app-case [personne]="person"  (messageEvent)="receiveMessage($event)"></app-case>
         </div>
       </div >
     </div >
@@ -50,7 +61,7 @@
    </div>
   </div>
 
-
+</div>
 
 
 
