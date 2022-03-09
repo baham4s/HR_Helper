@@ -117,17 +117,5 @@ export class DisplayComponent implements OnInit {
 
   }
 
-  contact() {
-    if(this.displaye==true){
-      this.ouvertureContact=true;
-      this.displaye=false;
-      this.ouvertureApropos=false;
 
-    }else{
-      this.ouvertureContact=false;
-      this.displaye=true;
-      this.ouvertureApropos=false;
-
-    }
-  }
 }

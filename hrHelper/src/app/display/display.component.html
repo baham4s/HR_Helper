@@ -7,8 +7,7 @@
   <span>HrHelper</span>
 
   <div class="boutonInfo">
-  <button pButton pRipple type="button" label="A propos" class="p-button-outlined p-button-info"(click)="apropos()"></button>
-  <button pButton pRipple type="button" label="Contact" class="p-button-outlined p-button-info"(click)="contact()"></button>
+  <button pButton pRipple type="button" label="A propos" class="p-button-warning"(click)="apropos()"></button>
 </div>
 </div>
 
@@ -21,9 +20,7 @@
 <div *ngIf="ouvertureApropos">
   <app-apropos></app-apropos>
 </div>
-<div *ngIf="ouvertureContact">
-  <app-contact></app-contact>
-</div>
+
 
 <div *ngIf="displaye">
 <div class="parent">

@@ -22,7 +22,6 @@ import { CaseComponent } from './case/case.component';
 import {ChartModule} from "primeng/chart";
 import {ProgressSpinnerModule} from "primeng/progressspinner";
 import { AproposComponent } from './apropos/apropos.component';
-import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -35,7 +34,7 @@ import { ContactComponent } from './contact/contact.component';
     BienvenueComponent,
     CaseComponent,
     AproposComponent,
-    ContactComponent,
+
 
   ],
   imports: [
