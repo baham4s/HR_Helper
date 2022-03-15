@@ -37,6 +37,7 @@ def main():
     langueCode = ["Anglais", "Allemand", "Espagnol", "Français"]
     etudeLevel = ["bac +1", "bac +2", "bac +3", "bac +4", "bac +5", "bac +6"]
     sep = " "
+    sep_ou = ","
 
     # Parcours du dictionnaire et création du filtre
     for key, value in dictFilter.items():
@@ -51,7 +52,7 @@ def main():
         elif key == "selectedLangue":  # TRAITEMENT DES LANGUES
             for i in range(len(langueCode)):
                 if value.find(langueCode[i]) >= 1:
-                    filterr += langueCode[i] + (sep if i != len(langueCode) - 1 else "")
+                    filterr += langueCode[i] + (sep_ou if i != len(langueCode) - 1 else "")
             filterr += ":"
 
         elif key == "selectedEtude":  # TRAITEMENT DES ETUDES
@@ -68,7 +69,7 @@ def main():
     return filterr
 
 #
-# z = main()
-# print("\nLE FILTRE : ", z, "\n")
+z = main()
+print("\nLE FILTRE : ", z, "\n")
 
 #%%

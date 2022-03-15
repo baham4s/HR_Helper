@@ -91,7 +91,7 @@ export class DisplayComponent implements OnInit {
     this.changementmode();
     setTimeout(() => {  this.changementmode();
       console.log("demande f5 serveur")
-      this.comp.GetServeur();}, 2000);
+      this.comp.GetServeur();}, 5000);
   }
 
   products = [];
