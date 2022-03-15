@@ -32,7 +32,7 @@ export class InformationPersonneComponent implements OnInit {
   id="";
   langue="";
   permis="";
-  DataGraph=[10, 59, 80, 81, 56, 90, 40];
+  DataGraph=[10, 59, 80];
 
   dataGrahp = {
     labels: ['date De Mise en ligne', 'formation', 'experience', 'dispo', 'langue'],
@@ -113,7 +113,7 @@ maj(Infos: any) {
   this.permis = (Infos)["permis"];
   // graphique
   this.dataGrahp = {
-    labels: ['date De Mise en ligne', 'formation', 'experience', 'dispo', 'langue'],
+    labels: ['date De Mise en ligne', 'formation', 'experience'],
     datasets: [
       {
         label: 'Indicateur viuel',
