@@ -22,6 +22,8 @@ export class FiltreComponent implements OnInit {
   selectedEtude: any=[];
   etude: any[]=[];
   filtreServeur: any;
+  anneExp: any;
+  minmax_buttons:any;
 
   // envoyer les filtre dans le composant pere (display)
   @Output() notify: EventEmitter<string>=new EventEmitter<string>();
@@ -31,11 +33,12 @@ export class FiltreComponent implements OnInit {
   public registerobj={
     _id: "61fc0d5ef81a6df1aa9472c2",
     Permis: false,
-    dispoImmedia: false,
+    dispoImmedia: true,
     dispoPlusTard: false,
     selectedLangue: "",
     selectedEtude:"",
-    motCle:""
+    motCle:"",
+    anneExp:""
   };
 
   // ajoute les mot cle
@@ -69,7 +72,8 @@ export class FiltreComponent implements OnInit {
       dispoPlusTard:this.BdispoPlusTard,
       selectedLangue:JSON.stringify(this.selectedLangue),
       selectedEtude: JSON.stringify(this.selectedEtude),
-      motCle:this.motCle.toString()
+      motCle:this.motCle.toString(),
+      anneExp:JSON.stringify(this.anneExp),
     };
     this.motCle="";
     this.updateFiltre();

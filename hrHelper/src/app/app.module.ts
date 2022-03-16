@@ -22,6 +22,7 @@ import { CaseComponent } from './case/case.component';
 import {ChartModule} from "primeng/chart";
 import {ProgressSpinnerModule} from "primeng/progressspinner";
 import { AproposComponent } from './apropos/apropos.component';
+import {InputNumberModule} from "primeng/inputnumber";
 
 
 
@@ -37,23 +38,24 @@ import { AproposComponent } from './apropos/apropos.component';
 
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ButtonModule,
-    RippleModule,
-    HttpClientModule,
-    InputTextModule,
-    InputSwitchModule,
-    CascadeSelectModule,
-    MultiSelectModule,
-    DropdownModule,
-    CheckboxModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    ChartModule,
-    ProgressSpinnerModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ButtonModule,
+        RippleModule,
+        HttpClientModule,
+        InputTextModule,
+        InputSwitchModule,
+        CascadeSelectModule,
+        MultiSelectModule,
+        DropdownModule,
+        CheckboxModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        ChartModule,
+        ProgressSpinnerModule,
+        InputNumberModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -11,6 +11,8 @@ const userSchema = mongoose.Schema({
   selectedLangue: { type: String },
   selectedEtude: { type: String },
   motCle: { type: String },
+  anneExp: { type: String },
+
 
 });
 //, unique: true

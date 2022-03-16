@@ -9,7 +9,7 @@ import {DisplayComponent} from "../display/display.component";
 export class InformationPersonneComponent implements OnInit {
   // recupere les infos du composant pere et met à jour les donner
   @Input() set childMessage(valeur: any) {
-  console.log(valeur["dispo"])
+  console.log(valeur["Indice"])
   this.maj(valeur)
   //this.Infos =valeur;
 }
@@ -32,21 +32,31 @@ export class InformationPersonneComponent implements OnInit {
   id="";
   langue="";
   permis="";
-  DataGraph=[10, 59, 80];
+  DataGraph=[100, 100, 100];
 
   dataGrahp = {
-    labels: ['date De Mise en ligne', 'formation', 'experience', 'dispo', 'langue'],
+    labels: ['date De Mise en ligne', 'formation', 'experience'],
     datasets: [
       {
-        label: 'Indicateur viuel',
-        backgroundColor: 'rgba(13,191,245,0.2)',
+        label: '',
+        backgroundColor: 'rgba(179,181,198,0)',
         borderColor: 'rgba(179,181,198,1)',
         pointBackgroundColor: 'rgba(179,181,198,1)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgba(179,181,198,1)',
-        data: this.DataGraph
+        data: [65, 59, 90]
       },
+      {
+        label: 'My Second dataset',
+        backgroundColor: 'rgba(255,99,132,0.2)',
+        borderColor: 'rgba(255,99,132,1)',
+        pointBackgroundColor: 'rgba(255,99,132,1)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgba(255,99,132,1)',
+        data: [28, 48, 40]
+      }
       ]
   }
 
@@ -113,8 +123,19 @@ maj(Infos: any) {
   this.permis = (Infos)["permis"];
   // graphique
   this.dataGrahp = {
-    labels: ['date De Mise en ligne', 'formation', 'experience'],
+    labels: ['Experience', 'Formation', 'Langue'],
     datasets: [
+      {
+        label: '',
+        backgroundColor: 'rgba(179,181,198,0)',
+        borderColor: 'rgba(179,181,198,0)',
+        pointBackgroundColor: 'rgba(179,181,198,0)',
+        pointBorderColor: 'rgba(255,255,255,0)',
+        pointHoverBackgroundColor: 'rgba(255,255,255,0)',
+        pointHoverBorderColor: 'rgba(179,181,198,0)',
+        data: [100, 100, 0]
+      },
+
       {
         label: 'Indicateur viuel',
         backgroundColor: 'rgba(13,191,245,0.2)',
@@ -123,8 +144,8 @@ maj(Infos: any) {
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgba(179,181,198,1)',
-        data: (Infos)["Indice"]
-      },
+        data: Infos["Indice"]
+      }
       //{
       // label: 'My First dataset',
       // backgroundColor: 'rgba(13,191,245,0.2)',
