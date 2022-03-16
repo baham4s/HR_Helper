@@ -108,8 +108,7 @@ def indicateurExperience(profil, filtre, motCleFiltreSort):
 
     exp = profil.get("experience")
 
-    # expVoulu = filtre.get("experience")
-    expVoulu = -1
+    expVouluString = filtre.get("anneExp")    
 
     dureeExperienceTotal = 0
     
@@ -139,7 +138,7 @@ def indicateurExperience(profil, filtre, motCleFiltreSort):
             
         # print("Duree total :", dureeExperienceTotal)
         
-        if(expVoulu == -1):                             # SANS FILTRES    
+        if(expVouluString == "null"):                             # SANS FILTRES    
             if(dureeExperienceTotal < 12):
                 indicateur = 25
             elif(dureeExperienceTotal >= 12 and dureeExperienceTotal < 36):
@@ -148,7 +147,8 @@ def indicateurExperience(profil, filtre, motCleFiltreSort):
                 indicateur = 75
             elif(dureeExperienceTotal >= 72):
                 indicateur = 100
-        else:                                                           # AVEC FILTRES 
+        else:
+            expVoulu = int(expVouluString)                                                           # AVEC FILTRES 
             if( (dureeExperienceTotal / (expVoulu*12)) >= 1):
                 indicateur = 100
             else:
