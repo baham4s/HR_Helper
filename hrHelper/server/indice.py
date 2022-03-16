@@ -5,6 +5,8 @@ import time
 import re
 import json
 import pymongo
+from operator import itemgetter
+
 
 # Parcours de personne --> Rajout parcours interne au personne
 # Méthode de traitement des données
@@ -19,7 +21,10 @@ import pymongo
 # - DEBUT TRAITEMENT DES DONNEES -#
 # --------------------------------#
 
+# INDICATEUR SUR LES LANGUES
 def indicateurLangue(profil, filtre, langueFiltreSort, motCleFiltreSort):
+
+    # print("\n----------------- PROFIL -----------------\n")
 
     indicateur = 0
 
@@ -27,7 +32,11 @@ def indicateurLangue(profil, filtre, langueFiltreSort, motCleFiltreSort):
 
     motCle = filtre.get("motCle")  # Les mots clé du filtre
 
+    if(motCle == ""):
+        motCle = "null"
+
     if(len(langueFiltreSort) == 0):   # AUCUN FILTRE
+        # print("AUCUN FILTRE")
         if(langue[0]=="null"):
             indicateur = 0
         else:
@@ -41,6 +50,7 @@ def indicateurLangue(profil, filtre, langueFiltreSort, motCleFiltreSort):
             indicateur /= len(langue)
 
     elif(len(langueFiltreSort) >= 1 and not(motCle in stringMetierLangue)):  # FILTRE
+        # print("FILTRE")
         for j in range(len(langue)):
             if(langue[j]=="null"):
                 indicateur = 0
@@ -57,6 +67,7 @@ def indicateurLangue(profil, filtre, langueFiltreSort, motCleFiltreSort):
                 indicateur /= len(langueFiltreSort)
 
     elif(len(langueFiltreSort) >= 1 and (motCle in stringMetierLangue)):       # FILTRE + MOT CLE
+        # print("FILTRE + MOT CLE")
         for j in range(len(langue)):
             if(langue[j]=="null"):
                 indicateur = 0
@@ -73,6 +84,7 @@ def indicateurLangue(profil, filtre, langueFiltreSort, motCleFiltreSort):
                 indicateur /= len(langueFiltreSort)
     
     else:                                                               # MOT CLE
+        # print("MOT CLE")
         if(langue[0]=="null"):
             indicateur = 0
         else:
@@ -85,19 +97,126 @@ def indicateurLangue(profil, filtre, langueFiltreSort, motCleFiltreSort):
                     indicateur += 10
             indicateur /= len(langue)
 
+    # print(indicateur)
     return int(indicateur)
 
 # INDICATEUR SUR L'EXPERIENCE
+# https://myrhline.com/type-article/recruteurs-pourquoi-vous-ne-devez-pas-demander-plus-de-3-ans-d-experience-aux-candidats/amp/
 def indicateurExperience(profil, filtre, motCleFiltreSort):
 
-    experience = profil.get("experience")
+    # print("\n----------------- PROFIL -----------------\n")
 
-    print(experience[0])
+    exp = profil.get("experience")
 
+    # expVoulu = filtre.get("experience")
+    expVoulu = -1
 
-    indicateur = 50
+    dureeExperienceTotal = 0
+    
+    if(len(exp)== 0):
+        # print("Sans experiences")
+        return 0
+
+    else:                                           
+        experience = []
+        duree = " "
+        detectTimeAns = "ans an"
+        detectTimeMois = "mois"
+        for i in range(len(exp)):
+            # experience["n°"][0:Titre - 1:Duree]
+            experience.append([exp[i].get("titre"), exp[i].get("duree")])
+
+        for j in range(len(experience)):
+            duree = experience[j][1]
+            duree = duree.replace("(","").replace(")","")
+            duree = duree.split()
+
+            for k in range(len(duree)):
+                if(duree[k] in detectTimeMois):
+                    dureeExperienceTotal += (int(duree[k-1]))
+                elif(duree[k] in detectTimeAns):
+                    dureeExperienceTotal += (int(duree[k-1])*12)
+            
+        # print("Duree total :", dureeExperienceTotal)
+        
+        if(expVoulu == -1):                             # SANS FILTRES    
+            if(dureeExperienceTotal < 12):
+                indicateur = 25
+            elif(dureeExperienceTotal >= 12 and dureeExperienceTotal < 36):
+                indicateur = 50
+            elif(dureeExperienceTotal >= 36 and dureeExperienceTotal < 72):
+                indicateur = 75
+            elif(dureeExperienceTotal >= 72):
+                indicateur = 100
+        else:                                                           # AVEC FILTRES 
+            if( (dureeExperienceTotal / (expVoulu*12)) >= 1):
+                indicateur = 100
+            else:
+                indicateur = (dureeExperienceTotal / (expVoulu*12)) * 100
+
     return int(indicateur)
 
+# INDICATEUR SUR LES FORMATIONS
+def indicateurFormation(profil, filtre):
+
+    indicateur = -1
+    
+    etudeRequis = filtre.get("selectedEtude")
+
+    formation = profil.get("formation")
+
+    # On récupère tous les niveaux d'études après le bac
+    if(len(formation) == 0):
+        return 0
+    else: 
+        niveauBacMax = []
+        niveauBacMaxDigit = []
+        for i in range(len(formation)):
+            niveauBac = formation[i].get("niveau").split()
+            if(niveauBac[0] == 'null'):
+                niveauBacMax.append("Bac0")
+            else:
+                if( (niveauBac[1] in "Bac0 Bac1 Bac2 Bac3 Bac4 Bac5") ):
+                    niveauBacMax.append(niveauBac[1])
+                elif(len(niveauBac[0]) >= 4 and niveauBac[0] != "CAP," ) :
+                    niveauBacMax.append(niveauBac[0])
+                else:
+                    niveauBacMax.append("Bac1")
+
+        for j in range(len(niveauBacMax)):
+            if(niveauBacMax[j][3].isdigit()):
+                niveauBacMaxDigit.append(int(niveauBacMax[j][3]))
+            elif(niveauBacMax[j][0].isdigit()):
+                niveauBacMaxDigit.append(int(niveauBacMax[j][0]))
+        
+        # Création des indicateurs de formations 
+        if(etudeRequis == "[]"):                      # SANS FILTRE
+            indicateur = int(( max(niveauBacMaxDigit) / 5 ) * 100)
+        else:                                       # AVEC FILTRE
+            etudeRequis = int(etudeRequis[15])
+            indicateur = int(( max(niveauBacMaxDigit) / etudeRequis ) * 100)
+
+        # On affine les indicateurs en fonction du plus haut diplome obtenu
+        maxI = []
+        for k in range(len(niveauBacMaxDigit)):
+            if(niveauBacMaxDigit[k] == max(niveauBacMaxDigit)):
+                maxI.append(k)
+                
+        stringEtudeSup = ["Docteur", "docteur", "Doctorat", "doctorat", "Master", "Ingénieur", "ingénieur", "ingénierie"]
+        stringEtudeMoy = ["Licence", "licence", "DUT", "BTS", "Bac Pro", "BAC PRO", "Bac pro", "LICENCE"]
+        nivEtude = 0
+        for l in maxI:
+            for m in range(len(stringEtudeSup)):
+                if(stringEtudeSup[m] in formation[l].get("titre")):
+                    if(nivEtude <= 1):
+                        nivEtude = 1
+                elif(stringEtudeMoy[m] in formation[l].get("titre")):
+                    if(nivEtude <= 0.75):
+                        nivEtude = 0.75
+            if(nivEtude == 0):
+                nivEtude = 0.50
+
+    return int(indicateur * nivEtude)
 
 # --------------------------------#
 # - AJOUT DES INDICATEURS PROFIL -#
@@ -128,7 +247,7 @@ del dictFilter["__v"]
 
 tabLangue = ["Espagnol", "Allemand", "Français", "Anglais"]
 
-stringMetierLangue = "Traducteur Interprète Tourisme Journalisme Informatique"
+stringMetierLangue = "Traducteur-Interprète-Tourisme-Journalisme-Informatique"
 
 metierLangue = ["Traducteur", "Interprète", "Tourisme", "Journalisme", "Informatique"]
 
@@ -153,9 +272,10 @@ if(dictFilter.get("motCle") != ""):
             motCleFiltreSort += " " + metierLangue[i]
     motCleFiltreSort = motCleFiltreSort.split() 
 
-print("Langue(s) dans le filtre : ", langueFiltreSort, "\n")
+print(dictFilter)
+
+print("\nLangue(s) dans le filtre : ", langueFiltreSort, "\n")
 print("Mots cle dans le filtre  : ", motCleFiltreSort, "\n")
-print("------------------------------------------------------------------------------------\n")
 
 
 def calculIndiceProfil(file):
@@ -163,10 +283,8 @@ def calculIndiceProfil(file):
     A = []
     for k in range(len(file)):
         profil = file[k]
-        z= [1,
-            1,
-            indicateurExperience(profil, dictFilter, motCleFiltreSort),
-            1,
+        z= [indicateurExperience(profil, dictFilter, motCleFiltreSort),
+            indicateurFormation(profil, dictFilter),
             indicateurLangue(profil, dictFilter, langueFiltreSort, motCleFiltreSort)
             ]
         A.append(z)
@@ -174,4 +292,4 @@ def calculIndiceProfil(file):
     return A
 
 matriceIndice = calculIndiceProfil(f_read)
-print(matriceIndice)
+print("\n\n", matriceIndice)
