@@ -7,7 +7,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 #presentation{
-
+position: relative;
 }
 #main{
   display: none;
@@ -18,20 +18,23 @@
 }
 
 .titre{
-  margin-top: 8%;
+
   text-align: center;
 }
 .tuto{
   text-align: center;
+
 }
 .bouton{
   margin-top: 15%;
   text-align: center;
+  margin-bottom: 15%;
 }
 
 footer{
   height:50px;
-  position:absolute;
+  position:relative;
+  margin-top: 6%;
   bottom:0;
   width:100%;
   background: #1976d2;
@@ -39,7 +42,7 @@ footer{
 footer p {
 
   height:50px;
-  position:absolute;
+  position:relative;
   bottom:0;
   width:100%;
   text-align: center;
