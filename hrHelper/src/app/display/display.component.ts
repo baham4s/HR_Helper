@@ -19,7 +19,7 @@ export class DisplayComponent implements OnInit {
   dateFormation: Object = "";
   dateMAJ: Object = "";
   data:Object= "";
-  ouvertureCaseDebut :  boolean  =  true
+  ouvertureCaseDebut :  boolean  =  false
   ouvertureChargement :  boolean  =  false
   ouvertureCase :  boolean  =  true
   ouvertureInfo :  boolean  =  false

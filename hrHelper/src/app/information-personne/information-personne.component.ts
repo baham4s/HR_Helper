@@ -137,7 +137,7 @@ maj(Infos: any) {
       },
 
       {
-        label: 'Indicateur viuel',
+        label: 'Competences',
         backgroundColor: 'rgba(13,191,245,0.2)',
         borderColor: 'rgba(179,181,198,1)',
         pointBackgroundColor: 'rgba(179,181,198,1)',
