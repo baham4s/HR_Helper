@@ -18,7 +18,7 @@ def find_word(text, search):
 
 
 # Envoie des donnée filtrer sur la BDD
-def send_mongo(data):
+def send_ret_filtre_mongo(data):
     serv = pymongo.MongoClient(
         "mongodb+srv://hrhelper:hrhelper@hrhelper.iavo1.mongodb.net/profilesDB?retryWrites=true&w=majority")
 
@@ -30,6 +30,18 @@ def send_mongo(data):
     serv['profilesDB']['retour_filtres'].insert_many(data)
 
 
+def send_db_mongo(data):
+    serv = pymongo.MongoClient(
+        "mongodb+srv://hrhelper:hrhelper@hrhelper.iavo1.mongodb.net/profilesDB?retryWrites=true&w=majority")
+
+    # Suppression des valeurs dans la table retour_filtres en supprimant la table
+    serv['profilesDB'].drop_collection('profiles')
+    # Recréation de la table filtre
+    serv['profilesDB'].create_collection('profiles')
+    # Ajout des données a la BDD
+    serv['profilesDB']['profiles'].insert_many(data)
+
+
 # Lancement du scrapping
 # scrapping.main("Java")
 
@@ -37,54 +49,62 @@ def send_mongo(data):
 f = open("bdd.json", "r", encoding='utf-8')
 f_read = json.load(f)
 
+send_db_mongo(f_read)
+
 # Récupération de filtre via une requete
-input_word = getFiltres.main().replace(':', ' ')
+if getFiltres.main() != "":
+    input_word = getFiltres.main().replace(':', ' ')
+    print(input_word)
 
-# Ou
-if ',' in input_word:
-    # Séparation des mots saisi
-    input_word = input_word.split(',')
+    # Ou
+    if ',' in input_word:
+        # Séparation des mots saisi
+        input_word = input_word.split(',')
 
-    # Parcours BDD
-    for personne in f_read:
-        s = json.dumps(personne)
-        d = json.loads(s)
-        # Parcours mots clé
-        for word in input_word:
-            # Parcours dossier d'une personne
-            for value in d.values():
-                # Vérifie si un mots est présent
-                if re.search(r"\b" + re.escape(word.upper()) + r"\b", str(value).upper()):
-                    ret.append(personne)
-# Et
-else:
-    # Séparation des mots saisi
-    input_word = list(filter(None, input_word.split(' ')))
-    # Parcours BDD
-    for personne in f_read:
-        s = json.dumps(personne)
-        d = json.loads(s)
-
-        # Parcours mots clé
-        for i in input_word:
-            # Parcours dossier d'une personne
-            for value in d.values():
-                # Parcours dispo, titre, date
-                if isinstance(value, str):
-                    if find_word(value.upper(), i.upper()):
+        # Parcours BDD
+        for personne in f_read:
+            s = json.dumps(personne)
+            d = json.loads(s)
+            # Parcours mots clé
+            for word in input_word:
+                # Parcours dossier d'une personne
+                for value in d.values():
+                    # Vérifie si un mots est présent
+                    if re.search(r"\b" + re.escape(word.upper()) + r"\b", str(value).upper()):
                         ret.append(personne)
-                # Parcours autre carac
-                elif isinstance(value, list):
-                    for v in value:
-                        # Parcours mots clé
-                        if isinstance(v, str):
-                            if find_word(v.upper(), i.upper()):
-                                ret.append(personne)
-                        # Parcours expérience, formation
-                        elif isinstance(v, dict):
-                            for a in v.values():
-                                if find_word(a.upper(), i.upper()):
+    # Et
+    else:
+        # Séparation des mots saisi
+        input_word = list(filter(None, input_word.split(' ')))
+        # Parcours BDD
+        for personne in f_read:
+            s = json.dumps(personne)
+            d = json.loads(s)
+
+            # Parcours mots clé
+            for i in input_word:
+                # Parcours dossier d'une personne
+                for value in d.values():
+                    # Parcours dispo, titre, date
+                    if isinstance(value, str):
+                        if find_word(value.upper(), i.upper()):
+                            ret.append(personne)
+                    # Parcours autre carac
+                    elif isinstance(value, list):
+                        for v in value:
+                            # Parcours mots clé
+                            if isinstance(v, str):
+                                if find_word(v.upper(), i.upper()):
                                     ret.append(personne)
+                            # Parcours expérience, formation
+                            elif isinstance(v, dict):
+                                for a in v.values():
+                                    if find_word(a.upper(), i.upper()):
+                                        ret.append(personne)
+
+else:
+    ret = f_read
+    print("empty list")
 
 # Suppression des doublons
 ret = [i for n, i in enumerate(ret) if i not in ret[n + 1:]]
@@ -93,13 +113,6 @@ for i in range(len(ret)):
     ret[i]["Indice"] = matriceIndice[i]
 print(ret)
 print(len(ret))
-send_mongo(ret)
+send_ret_filtre_mongo(ret)
 
-
-
-
-
-# arrive sur le site retour_filtres est vide
-# lancement recherche
-#affiche bdd vide
-# act
+#%%

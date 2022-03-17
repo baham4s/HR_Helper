@@ -1,5 +1,8 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import StaleElementReferenceException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.options import Options
 import re
 import json
@@ -13,6 +16,9 @@ import sys
 
 
 # Méthode récupérant les informations sur les expérience et les formations d'un groupe de personne
+from selenium.webdriver.support.wait import WebDriverWait
+
+
 def create_dic_xp_form(tab_personne):
     ret = []
 
@@ -143,14 +149,24 @@ def stop(driver, code):
     if code == 0:
         print("[+] Data !")
     elif code == 1:
+        print("[-] Erreur site indisponible")
+    elif code == 2:
+        print("[-] Erreur nombre de profils introuvable")
+    elif code == 3:
+        print("[-] Erreur interface viison CV")
+    elif code == 4:
         print("[-] Erreur")
+    elif code == 5:
+        print("[-] Erreur impossible de charger le profils suivant")
+    elif code == 6:
+        print("[-] Erreur page refresh")
 
 
 def main(keyword):
     sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname("scrapping.py"))))
     # Options permettant de ne pas afficher le navigateur
     options = Options()
-    options.add_argument('--headless')
+    # options.add_argument('--headless')
 
     driver = webdriver.Firefox(options=options)
     # Chargement de la page d'accueil
@@ -164,7 +180,6 @@ def main(keyword):
     # Lancement de la recherche
     driver.find_element_by_id('lancerRechercheCv').click()
     if 'indisponible' in driver.title:
-        print("serveur pas dispo")
         stop(driver, 1)
         return
     else:
@@ -175,7 +190,7 @@ def main(keyword):
         nb_profil = driver.find_element_by_xpath('//span[@class="subtitle"]').text.replace(" profils", "")
         nb_profil = 25 if int(nb_profil) > 25 else int(nb_profil)
     except NoSuchElementException:
-        stop(driver, 1)
+        stop(driver, 2)
         return
 
     # 3 correspond a 30 profil
@@ -189,7 +204,7 @@ def main(keyword):
     try:
         driver.find_element_by_xpath('//button[@class="lienclic-profil text-entreprise btn-reset"]').click()
     except NoSuchElementException:
-        stop(driver, 1)
+        stop(driver, 3)
         return
 
     # Permet le chargement du CV
@@ -199,7 +214,7 @@ def main(keyword):
     try:
         driver.find_element_by_xpath('//span[@class="text-entreprise"]').click()
     except NoSuchElementException:
-        stop(driver, 1)
+        stop(driver, 4)
         return
 
     lst_tmp_xp_and_form = []
@@ -222,7 +237,14 @@ def main(keyword):
         # Problème a cause du rechargement de la page
         # Probable => Arrivé a 10 reload page car voir plus de profil
         # Récupération du code contenant les expériences et formations
-        xp_and_form = driver.find_elements_by_xpath('//div[@class="media-body"]')
+
+        # ignored_exceptions = (NoSuchElementException, StaleElementReferenceException,)
+        # try:
+        xp_and_form = WebDriverWait(driver, 1).until(EC.presence_of_all_elements_located((By.XPATH, '//div[@class="media-body"]')))
+        print(xp_and_form)
+        # xp_and_form = driver.find_elements_by_xpath('//div[@class="media-body"]')
+        # finally:
+        #     stop(driver, 6)
 
         # Récupération du code contenant les compétences
         comp = driver.find_elements_by_xpath('//div[@class="competences t-zone"]')
@@ -238,7 +260,7 @@ def main(keyword):
         try:
             driver.find_element_by_xpath('//span[@class="icon-chevron-right"]').click()
         except NoSuchElementException:
-            stop(driver, 1)
+            stop(driver, 5)
             return
 
         # Ajout d'une personne dans un groupe de personne
@@ -260,3 +282,8 @@ def main(keyword):
         file.write(json.dumps(dico, indent=4, ensure_ascii=False))
 
     stop(driver, 0)
+
+
+main("Java")
+
+#%%
